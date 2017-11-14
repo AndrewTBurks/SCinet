@@ -2,11 +2,21 @@
   let state = {
     width: null,
     height: null,
-    worldRadius: 30
+    worldRadius: 30,
+    group: null,
+    pathGroup: null
   };
 
   // initialize
   init();
+
+  let colorScale = d3.scaleQuantile()
+    .domain([Math.pow(2, 10), Math.pow(2, 20), Math.pow(2, 30), Math.pow(2, 40)])
+    .range(['#fef0d9', '#fdcc8a', '#fc8d59', '#e34a33']);
+
+  let widthScale = d3.scaleQuantile()
+    .domain([Math.pow(2, 10), Math.pow(2, 20), Math.pow(2, 30), Math.pow(2, 40)])
+    .range([2, 3, 4, 5]);
 
   function init() {
     state.scene = new THREE.Scene();
@@ -19,11 +29,14 @@
     state.group = new THREE.Group();
     state.scene.add(state.group);
 
+    state.pathGroup = new THREE.Group();
+    state.group.add(state.pathGroup);
+
 
     var geometry = new THREE.SphereGeometry(state.worldRadius - 0.25, 32, 32);
 
     let material = new THREE.MeshBasicMaterial({
-    // var material = new THREE.MeshPhongMaterial({
+      // var material = new THREE.MeshPhongMaterial({
       color: 0x050505
     });
     var sphere = new THREE.Mesh(geometry, material);
@@ -43,32 +56,72 @@
     state.camera.lookAt(0, 0, 0);
 
     var light = new THREE.PointLight(0xffffff, 1, 100);
-    light.position.set(state.worldRadius/4, state.worldRadius, state.worldRadius * 1.75);
+    light.position.set(state.worldRadius / 4, state.worldRadius, state.worldRadius * 1.75);
     state.scene.add(light);
 
     state.renderer.render(state.scene, state.camera);
 
-    var animate = function () {
-      requestAnimationFrame(animate);
+    let lastTime = 0;
 
-      state.group.rotation.y += 0.003;
+    var animate = function (timestep) {
+      // requestAnimationFrame(animate);
+      // console.log(timestep);
 
+      // freegeoip.net/{format}/{IP_or_hostname}
+
+      d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/world-map/json?maxFlows=20&minValue=0&aggMode=max", function (err, json) {
+
+        if (err) console.warn(err);
+        // console.log(json);
+
+        for (var i = state.pathGroup.children.length - 1; i >= 0; i--) {
+          state.pathGroup.remove(state.pathGroup.children[i]);
+        }
+
+        if (json) {
+          for (let flow of json) {
+            let srcDest = flow.key.split(",");
+            // console.log(countryCodes[srcDest[0]]);
+
+            if (countryCodes[srcDest[0]] && countryCodes[srcDest[1]]);
+
+            createCurve(
+              countryCodes[srcDest[0]].slice(0, 2),
+              countryCodes[srcDest[1]].slice(0, 2),
+              flow.value
+            );
+          }
+        }
+      });
+
+      // console.log((timestep - lastTime) /1000);
+      
+      if (timestep && lastTime) {
+        state.group.rotation.y += ((timestep - lastTime) / 2500);
+        lastTime = timestep;
+      } else {
+        state.group.rotation.y +=  0.01;
+      }
+      // refresh render
       state.renderer.render(state.scene, state.camera);
     };
 
-    animate();
+    let interval = setInterval(animate, 250);
+
+    // animate();
 
     d3.json("https://unpkg.com/world-atlas/world/110m.json", (err, world) => {
       var countries = topojson.feature(world, world.objects.countries);
 
       dataLoaded(countries);
+      state.renderer.render(state.scene, state.camera);
     });
   }
 
-  function animate() {
-    requestAnimationFrame(animate);
-    state.renderer.render(state.scene, state.camera);
-  }
+  // function animate() {
+  //   requestAnimationFrame(animate);
+  //   state.renderer.render(state.scene, state.camera);
+  // }
 
   function dataLoaded(globe) {
     let linemat = new THREE.LineBasicMaterial({
@@ -111,79 +164,87 @@
       color: 0x41b6c4
     });
 
-    let start = [39.7392, -104.9903];
-    let end = [39.9042, 116.4074];
+    let end1 = [39.9042, 116.4074];
+    let end2 = [19.8968, -155.5828];
+
+    // let s1 = new THREE.Mesh(geometry, material);
+    // let p1 = latLngToVec3(start, state.worldRadius);
+    // s1.position.set(p1.x, p1.y, p1.z);
+    // state.group.add(s1);
+
+    // createCurve(start, end1);
+    // createCurve(start, end2);
+  }
+
+  function createCurve(start, end, weight) {
+    let geometry = new THREE.SphereGeometry(0.4, 6, 6);
+
+    // let material = new THREE.MeshPhongMaterial({
+    let material = new THREE.MeshBasicMaterial({
+      color: 0x41b6c4
+    });
 
     let s1 = new THREE.Mesh(geometry, material);
     let p1 = latLngToVec3(start, state.worldRadius);
     s1.position.set(p1.x, p1.y, p1.z);
-    state.group.add(s1);
-
-    // chicago test
-    // 41.8781° N, 87.6298
+    state.pathGroup.add(s1);
 
     let s2 = new THREE.Mesh(geometry, material);
     let p2 = latLngToVec3(end, state.worldRadius);
     s2.position.set(p2.x, p2.y, p2.z);
-    state.group.add(s2);
+    state.pathGroup.add(s2);
 
-    let path = new THREE.CurvePath();
+    let latStart, latEnd;
+    let lngStart, lngEnd;
 
-    let up = new THREE.Curve();
+    let leftRight;
 
+    // console.log(end[1] - start[1], end[1] - 360 - start[1])
+    // console.log((end[1] + 360) % 360 - (start[1] + 360) % 360, (start[1] + 360) % 360 - (end[1] + 360) % 360);
 
-    path.add(up);
-    path.add(across);
-    path.add(down);
+    if ((end[1] + 360) % 360 - (start[1] + 360) % 360 < (start[1] + 360) % 360 - (end[1] + 360) % 360) {
+      leftRight = "right";
+    } else {
+      leftRight = "left";
+    }
 
-    // createTestSpheres();
-  }
+    latStart = start[0];
+    latEnd = end[0];
 
-  function createTestSpheres() {
-    // add a few spheres to scene to test coords
-    let geometry = new THREE.SphereGeometry(1, 6, 6);
-    let material = new THREE.MeshBasicMaterial({
-      color: 0xffffff
+    // lngStart = start[1];
+    lngStart = start[1];
+    lngEnd = end[1];
+
+    let intermed = 10;
+    let coords = d3.range(0, intermed + 1).map((i) => {
+      let latOff = i * (latEnd - latStart) / (intermed);
+      let lngOff = i * (lngEnd - lngStart) / (intermed);
+
+      return latLngToVec3(
+        [latStart + latOff, lngStart + lngOff],
+        Math.abs(i - 5) > 2 ? state.worldRadius + 5 - Math.abs(i - 5) + 2 : state.worldRadius + 5);
     });
 
-    // let g1 = new THREE.SphereGeometry(1, 6, 6);
-    let s1 = new THREE.Mesh(geometry, material);
-    let p1 = latLngToVec3([30, -60]);
-    s1.position.set(p1.x, p1.y, p1.z);
+    let flow = new THREE.CatmullRomCurve3([
+      latLngToVec3([latStart, lngStart]),
+      ...coords,
+      latLngToVec3([latEnd, lngEnd])
+    ]);
 
-    // let g2 = new THREE.SphereGeometry(1, 6, 6);
-    let s2 = new THREE.Mesh(geometry, material);
-    let p2 = latLngToVec3([30, 60]);
-    s2.position.set(p2.x, p2.y, p2.z);
+    flow.tension = 0.75;
 
-    // let g3 = new THREE.SphereGeometry(1, 6, 6);
-    let s3 = new THREE.Mesh(geometry, material);
-    let p3 = latLngToVec3([30, 180]);
-    s3.position.set(p3.x, p3.y, p3.z);
+    let points = flow.getPoints(20);
 
-    // let g4 = new THREE.SphereGeometry(1, 6, 6);
-    let s4 = new THREE.Mesh(geometry, material);
-    let p4 = latLngToVec3([-30, -60]);
-    s4.position.set(p4.x, p4.y, p4.z);
+    // var curveGeo = new THREE.TubeGeometry(path, 20, 1, 8 false);
+    var curveGeo = new THREE.BufferGeometry().setFromPoints(points);
+    let linemat = new THREE.LineBasicMaterial({
+      color: new THREE.Color(colorScale(weight)),
+      linewidth: widthScale(weight)
+    });
+    let line = new THREE.Line(curveGeo, linemat);
+    // console.log(line);
 
-    // let g5 = new THREE.SphereGeometry(1, 6, 6);
-    let s5 = new THREE.Mesh(geometry, material);
-    let p5 = latLngToVec3([-30, 60]);
-    s5.position.set(p5.x, p5.y, p5.z);
-
-    // let g6 = new THREE.SphereGeometry(1, 6, 6);
-    let s6 = new THREE.Mesh(geometry, material);
-    let p6 = latLngToVec3([-30, 180]);
-    s6.position.set(p6.x, p6.y, p6.z);
-
-    // console.log(s1, s2, s3, s4, s5, s6);
-
-    state.group.add(s1);
-    state.group.add(s2);
-    state.group.add(s3);
-    state.group.add(s4);
-    state.group.add(s5);
-    state.group.add(s6);
+    state.pathGroup.add(line);
   }
 
   function latLngToVec3(point, radius = state.worldRadius) {

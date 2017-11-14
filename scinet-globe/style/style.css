@@ -1,6 +1,9 @@
 html,
 body {
     overflow: hidden;
+    font-family: Courier New, Courier, monospace;
+    color: white;
+    font-weight: bold;
 }
 
 body {
