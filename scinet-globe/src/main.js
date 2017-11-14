@@ -63,7 +63,9 @@
 
       state.scene.add(sphere);      
     }
-    else if (state.location === "inner") {
+    else {
+    // }
+    // else if (state.location === "inner") {
       state.camera = new THREE.PerspectiveCamera(85, window.innerWidth / window.innerHeight, 0.1, 1000);
       state.camera.position.z = state.worldRadius * .85;
       // state.camera.position.y = state.worldRadius / 2;
@@ -273,7 +275,7 @@
 
   function latLngToVec3(point, radius = state.worldRadius) {
     let lat = (point[0]) * Math.PI / 180,
-      lng = (-1 * point[1]) * Math.PI / 180;
+      lng = ((state.location === "inner" ? 1 : -1) * point[1]) * Math.PI / 180;
 
     let x = radius * Math.cos(lat) * Math.cos(lng);
     let z = radius * Math.cos(lat) * Math.sin(lng);
