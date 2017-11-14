@@ -19,8 +19,12 @@
     .range([2, 3, 4, 5]);
 
   function init() {
+    var url = location.href;
+    state.location = url.substring(url.indexOf("?") + 1);
+
+    console.log(state.location);
+
     state.scene = new THREE.Scene();
-    state.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
     state.renderer = new THREE.WebGLRenderer();
     state.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -40,7 +44,6 @@
       color: 0x050505
     });
     var sphere = new THREE.Mesh(geometry, material);
-    state.scene.add(sphere);
 
     var wireGeo = new THREE.SphereGeometry(state.worldRadius, 32, 32);
     var geo = new THREE.EdgesGeometry(wireGeo); // or WireframeGeometry( geometry )
@@ -51,9 +54,20 @@
     var wireframe = new THREE.LineSegments(geo, mat);
     state.group.add(wireframe);
 
-    state.camera.position.z = state.worldRadius * 1.75;
-    state.camera.position.y = state.worldRadius / 2;
-    state.camera.lookAt(0, 0, 0);
+    // different based on inner or outer
+    if (state.location === "outer") {
+      state.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      state.camera.position.z = state.worldRadius * 1.75;
+      state.camera.position.y = state.worldRadius / 2;
+      state.camera.lookAt(0, 0, 0);
+
+      state.scene.add(sphere);      
+    }
+    else if (state.location === "inner") {
+      state.camera = new THREE.PerspectiveCamera(85, window.innerWidth / window.innerHeight, 0.1, 1000);
+      state.camera.position.z = state.worldRadius * .85;
+      // state.camera.position.y = state.worldRadius / 2;
+    }
 
     var light = new THREE.PointLight(0xffffff, 1, 100);
     light.position.set(state.worldRadius / 4, state.worldRadius, state.worldRadius * 1.75);
@@ -221,8 +235,9 @@
       let lngOff = i * (lngEnd - lngStart) / (intermed);
 
       return latLngToVec3(
-        [latStart + latOff, lngStart + lngOff],
-        Math.abs(i - 5) > 2 ? state.worldRadius + 5 - Math.abs(i - 5) + 2 : state.worldRadius + 5);
+        [latStart + latOff, lngStart + lngOff], state.location === "outer" ? 
+        Math.abs(i - 5) > 2 ? state.worldRadius + 5 - Math.abs(i - 5) + 2 : state.worldRadius + 5 :
+        Math.abs(i - 5) > 2 ? state.worldRadius - 5 + Math.abs(i - 5) - 2 : state.worldRadius - 5);
     });
 
     let flow = new THREE.CatmullRomCurve3([
@@ -235,16 +250,25 @@
 
     let points = flow.getPoints(20);
 
-    // var curveGeo = new THREE.TubeGeometry(path, 20, 1, 8 false);
-    var curveGeo = new THREE.BufferGeometry().setFromPoints(points);
-    let linemat = new THREE.LineBasicMaterial({
-      color: new THREE.Color(colorScale(weight)),
-      linewidth: widthScale(weight)
-    });
-    let line = new THREE.Line(curveGeo, linemat);
-    // console.log(line);
+    // var curveGeo = new THREE.BufferGeometry().setFromPoints(points);
+    // let linemat = new THREE.LineBasicMaterial({
+    //   color: new THREE.Color(colorScale(weight)),
+    //   linewidth: widthScale(weight)
+    // });
+    // let line = new THREE.Line(curveGeo, linemat);
+    // // console.log(line);
 
-    state.pathGroup.add(line);
+    // state.pathGroup.add(line);
+
+    var tubeGeo = new THREE.TubeBufferGeometry(flow, 20, widthScale(weight)/15, 8, false);
+    // var tubeMat = new THREE.MeshPhongMaterial({
+    var tubeMat = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(colorScale(weight))
+    });
+
+    var tube = new THREE.Mesh(tubeGeo, tubeMat);
+
+    state.pathGroup.add(tube);
   }
 
   function latLngToVec3(point, radius = state.worldRadius) {
