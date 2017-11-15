@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box;
+    font-family: Courier New, Courier, monospace;
+    color: white;
+    font-weight: bold;
 }
 
 html,
@@ -14,23 +17,24 @@ body {
 }
 
 .backbone {
-  stroke: white;
-  fill: #888;
+    stroke: white;
+    fill: #888;
 }
 
-.booth {
+.booth, .country {
     fill: #333333;
     stroke: #888888;
     opacity: 50%;
 }
 
-.booth:hover {
+.booth:hover, .country:hover {
     fill: #333333;
     stroke: white;
     /* stroke-width: 2px; */
 }
 
-.boothConnection, .countryConnection {
+.boothConnection,
+.countryConnection {
     fill: none;
     stroke: red;
     stroke-width: 1px;

@@ -17,7 +17,7 @@
 
   let opacScale = d3.scaleQuantile()
     .domain([Math.pow(2, 10), Math.pow(2, 20), Math.pow(2, 30), Math.pow(2, 40)])
-    .range([0.1, 0.23, 0.36, 0.5]);
+    .range([0.2, 0.4, 0.6, 0.8]);
 
   // initialize
   init();
@@ -54,19 +54,27 @@
     state.width = d3.max(Object.values(state.booths), (booth) => booth.width + booth.x);
     state.height = d3.max(Object.values(state.booths), (booth) => booth.height + booth.y);
 
-
+    
     let margin = 50;
     let width = state.boothWidth;
     let height = state.height;
-
+    
     let svg = state.svg
-      .style("width", "100%")
-      .style("height", "100%")
-      .attr("viewBox", [0, 0, state.width + 2 * margin, state.height * 2 + 2 * margin].join(" "));
+    .style("width", "100%")
+    .style("height", "100%")
+    .attr("viewBox", [0, 0, state.width + 4 * margin, state.height * 2 + 4 * margin].join(" "));
+    
+    let boothTip = d3.tip().attr('class', 'd3-tip').direction('s').html(d => "Booth ID:" + d.id);
+    svg.call(boothTip);
+    
+    // let countryTip = d3.tip().attr('class', 'd3-tip').html(d => "" + d[2]);
+    // svg.call(countryTip);
 
     let boothIDs = Object.keys(state.booths);
 
-    svg.selectAll(".booth")
+    state.boothG = svg.append("g");
+
+    state.boothG.selectAll(".booth")
       .data(Object.values(state.booths))
       .enter().append("rect")
       .attr("id", (d) => d.id)
@@ -75,6 +83,12 @@
       .attr("height", d => d.height)
       .attr("x", d => d.x + margin)
       .attr("y", d => state.height - d.y - d.height + margin)
+      .on("mouseover", function(d) {
+        d3.select(this).raise();
+        d3.select(this).each(boothTip.show);
+      })
+      .on("mouseout", boothTip.hide);
+
     // .on("click", function (d) {
     //   if (d3.select(this).classed("selected")) {
     //     d3.select(this).classed("selected", null);
@@ -88,40 +102,46 @@
     //   }
     // });
 
-    let backbones = [{
-      id: "b1",
-      x: state.width / 10,
-      y: 0 - margin,
-      width: 20,
-      height: 20
-    }, {
-      id: "b2",
-      x: 3 * state.width / 10,
-      y: 0 - margin,
-      width: 20,
-      height: 20
-    }, {
-      id: "b3",
-      x: 5 * state.width / 10,
-      y: 0 - margin,
-      width: 20,
-      height: 20
-    }, {
-      id: "b4",
-      x: 7 * state.width / 10,
-      y: 0 - margin,
-      width: 20,
-      height: 20
-    }, {
-      id: "b5",
-      x: 9 * state.width / 10,
-      y: 0 - margin,
-      width: 20,
-      height: 20
-    }];
+    let backbones = {
+      "b1": {
+        id: "b1",
+        x: state.width / 10,
+        y: 0 - margin,
+        width: 20,
+        height: 20
+      },
+      "b2": {
+        id: "b2",
+        x: 3 * state.width / 10,
+        y: 0 - margin,
+        width: 20,
+        height: 20
+      },
+      "b3": {
+        id: "b3",
+        x: 5 * state.width / 10,
+        y: 0 - margin,
+        width: 20,
+        height: 20
+      },
+      "b4": {
+        id: "b4",
+        x: 7 * state.width / 10,
+        y: 0 - margin,
+        width: 20,
+        height: 20
+      },
+      "b5": {
+        id: "b5",
+        x: 9 * state.width / 10,
+        y: 0 - margin,
+        width: 20,
+        height: 20
+      }
+    };
 
     svg.selectAll(".backbone")
-      .data([backbones[2]]) // put back rest when I  have backbone info
+      .data([Object.values(backbones)[2]]) // put back rest when I  have backbone info
       // .data(backbones)
       .enter().append("circle")
       .attr("class", "backbone")
@@ -139,18 +159,52 @@
     //     return d;
     //   });
 
-    setInterval(function () {
-      // svg.selectAll(".boothConnection").remove();
-      // svg.selectAll(".countryConnection").remove();
-      remakeLinksAround(backbones);
-    }, 500);
+    let worldProj = d3.geoEquirectangular()
+      .translate([state.width / 2 + margin, 3 * state.height / 2 + 3 * margin])
+      .scale(175)
+    // .fitExtent([[margin, state.height + 2 * margin], [state.width - margin, state.height - margin]])
+    let path = d3.geoPath().projection(worldProj);
+
+    d3.json("https://unpkg.com/world-atlas/world/110m.json", (err, world) => {
+      var countries = topojson.feature(world, world.objects.countries);
+
+      state.countries = {};
+
+      Object.keys(countryCodes).forEach(c => {
+        let xy = worldProj(countryCodes[c].slice(0, 2).reverse());
+
+        state.countries[c] = {
+          id: c,
+          x: xy[0] - margin,
+          y: state.height - xy[1] + margin,
+          width: 0,
+          height: 0
+        };
+      });
+
+      state.countryG = svg.append("g");
+
+      state.countryG.selectAll(".country")
+        .data(countries.features)
+        .enter().append("path")
+        .attr("class", "country")
+        .attr("d", path)
+        .datum(d => console.log(d))
+        .on("mouseover", function (d) {
+          d3.select(this).raise();
+        })
+
+      setInterval(function () {
+        // remakeLinksAround(Object.values(backbones));
+        remakeLinksAround([Object.values(backbones)[2]]);
+      }, 500);
+    });
+
 
 
     function recolorNodes() {
 
       let updatedData = {};
-      // get data
-      // d3.json()
 
       for (let booth of Object.keys(state.booths)) {
         updatedData[booth] = Math.pow(Math.random() * Math.pow(2, 10), 4);
@@ -179,42 +233,44 @@
         //   };
         // });
 
-        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/flow_trend_1/json?minValue=0&aggMode=max", function (err, flows) {
-          // console.log(flows);
+        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/flow_trend_62/json?minValue=0&aggMode=max", function (err, flows) {
+          // console.log(flows.length);
           let boothLinks = [];
           let countryLinks = [];
 
-          let countries = [];
+          let boothIDs = Object.keys(state.booths);
+          let countryIDs = Object.keys(state.countries);
+
+          // add 5 fake data to test
+          // for (let i = 0; i < 5; i++) {
+          //   flows.push({
+          //     key: "" + state.booths[boothIDs[Math.floor(Math.random() * boothIDs.length)]].id + "_SEP_" + 
+          //     state.countries[countryIDs[Math.floor(Math.random() * countryIDs.length)]].id,
+          //     value: Math.pow(Math.random() * Math.pow(10, 20), 2)
+          //   });
+          // }
+
 
           for (flow of flows) {
             let sourceDest = flow.key.split("_SEP_");
 
             if (state.booths[sourceDest[0]]) {
               boothLinks.push({
-                source: nodes[2], // will split out into backbones once we have data
+                source: nodes[0], // will split out into backbones once we have data
                 target: state.booths[sourceDest[0]],
-                weight: flow.value
+                weight: +flow.value
               });
             }
 
-            let fakeCountry = {
-              id: "c",
-              x: Math.random() * state.width,
-              y: 0 + margin - state.height / 4 - (Math.random() * state.height / 2),
-              width: 20,
-              height: 20
-            };
-
-            countries.push(fakeCountry);
-
-            countryLinks.push({
-              source: nodes[2], // will split out into backbones once we have data
-              target: fakeCountry,
-              weight: flow.value
-            });
+            if (state.countries[sourceDest[1]]) {
+              countryLinks.push({
+                source: nodes[0], // will split out into backbones once we have data
+                target: state.countries[sourceDest[1]],
+                weight: +flow.value
+              });
+            }
 
           }
-
 
           // draw booth links
           for (let edge of boothLinks) {
@@ -240,6 +296,7 @@
 
           svg.selectAll(".boothConnection")
             .attr("d", linkToBezier)
+            .transition()
             .style("stroke", d => colorScale(d.weight))
             .style("stroke-width", (d) => widthScale(d.weight))
             .style("stroke-opacity", (d) => opacScale(d.weight));
@@ -250,7 +307,6 @@
             .style("stroke", d => colorScale(d.weight))
             .style("stroke-width", (d) => widthScale(d.weight))
             .style("stroke-opacity", (d) => opacScale(d.weight));
-
 
           // draw "country" links
           for (let edge of countryLinks) {
@@ -263,62 +319,32 @@
 
           }
 
-          for (let c of countries) {
-            let edgesIn = countryLinks.filter(l => l.target === c);
-            findBundleControlPoints(c, edgesIn, []);
+          for (let c of Object.keys(state.countries)) {
+            let country = state.countries[c];
+            let edgesIn = countryLinks.filter(l => l.target === country);
+            findBundleControlPoints(country, edgesIn, []);
           }
 
-          let countryBind =
-            svg.selectAll(".countryConnection")
+          let countryBind = svg.selectAll(".countryConnection")
             .data(countryLinks);
-
+            
           countryBind.exit().remove();
 
           svg.selectAll(".countryConnection")
             .attr("d", linkToBezier)
+            .transition()
             .style("stroke", d => colorScale(d.weight))
             .style("stroke-width", (d) => widthScale(d.weight))
             .style("stroke-opacity", (d) => opacScale(d.weight));
 
-          boothBind.enter().append("path")
+          countryBind.enter().append("path")
             .attr("class", "countryConnection")
             .attr("d", linkToBezier)
             .style("stroke", d => colorScale(d.weight))
             .style("stroke-width", (d) => widthScale(d.weight))
             .style("stroke-opacity", (d) => opacScale(d.weight));
         });
-
-
-
       }
-    }
-
-    function findNaiveControlPoint(node, edges) {
-      let xOffset = 0;
-      let yOffset = 0;
-      let totalWeight = 0;
-
-      let weightMult = 1;
-
-      if (edges.length) {
-        for (let edge of edges) {
-          xOffset += ((edge.target.x + edge.target.width / 2) - (node.x + node.width / 2)) * edge.weight / 2;
-          yOffset += ((edge.target.y + edge.target.height / 2) - (node.y + node.height / 2)) * edge.weight / 2;
-          totalWeight += edge.weight;
-        }
-
-        return {
-          x: (xOffset * weightMult / totalWeight) + node.x,
-          y: (yOffset * weightMult / totalWeight) + node.y
-        };
-
-      } else {
-        return {
-          x: node.x,
-          y: node.y
-        };
-      }
-
     }
 
     function findBundleControlPoints(node, edgesIn, edgesOut) {
@@ -468,17 +494,6 @@
       edge.sourceAngle = sourceRadian * 180 / Math.PI;
       edge.targetAngle = edge.sourceAngle > 0 ? edge.sourceAngle - 180 : edge.sourceAngle + 180;
       // console.log(edge.sourceAngle, edge.targetAngle);
-    }
-
-    function lineToBezier(link) {
-      // "M100, 250 C178, 205 316, 200 400, 250"]
-      let source = link.source;
-      let target = link.target;
-
-      return `M${source.x + source.width / 2 +margin}, ${state.height - source.y - source.height / 2 + margin} 
-        C${source.controlOut.x + margin}, ${state.height - source.controlOut.y + margin} 
-        ${target.controlIn.x + margin}, ${state.height - target.controlIn.y + margin} 
-        ${target.x + target.width / 2 + margin}, ${state.height - target.y - target.height / 2+ margin} `;
     }
 
     function linkToBezier(link) {

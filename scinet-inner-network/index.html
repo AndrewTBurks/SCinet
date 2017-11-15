@@ -6,14 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SC17 Showfloor</title>
 
+  <link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+  <div style="z-index: 500; position: absolute; top: 20px; left: 20px;">Showfloor Traffic</div>
+  <div style="z-index: 500; position: absolute; top: 50px; left: 20px; color: #fef0d9"> > 1KB</div>
+  <div style="z-index: 500; position: absolute; top: 70px; left: 20px; color: #fdcc8a"> > 1MB</div>
+  <div style="z-index: 500; position: absolute; top: 90px; left: 20px; color: #fc8d59"> > 1GB</div>
+  <div style="z-index: 500; position: absolute; top: 110px; left: 20px; color: #e34a33"> > 1TB</div>
+
+  <!-- https://github.com/AndrewTBurks/SCinet17 -->
+  <div style="z-index: 500; position: absolute; bottom: 0px; left: 20px; color: #41b6c4"> https://github.com/AndrewTBurks/SCinet17 (scinet-inner-network)</div>
+
   <svg id="root"></svg>
 
 
+  <script src="./data/countryCodes.js"></script>
   <script src="./lib/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
   <script src="./lib/lodash.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js"></script>
   <script src="./src/main.js"></script>
 </body>
 </html>
