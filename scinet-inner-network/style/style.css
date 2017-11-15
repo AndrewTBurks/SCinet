@@ -1,37 +1,40 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #root {
-  background: lightgray;
-  width: 100%;
-  height: 100%;
+    background: black;
+}
+
+.backbone {
+  stroke: white;
+  fill: #888;
 }
 
 .booth {
-  fill: lightblue;
-  stroke: black;
+    fill: #333333;
+    stroke: #888888;
+    opacity: 50%;
 }
 
 .booth:hover {
-  fill: #90d9f1;
-  stroke: white;
-  /* stroke-width: 2px; */
+    fill: #333333;
+    stroke: white;
+    /* stroke-width: 2px; */
 }
 
-.connection {
-  fill: none;
-  stroke: red;
-  stroke-width: 1px;
-  stroke-linecap: round;
-  opacity: 0.25;
-  pointer-events: none;
+.boothConnection, .countryConnection {
+    fill: none;
+    stroke: red;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    /* opacity: 0.25; */
+    pointer-events: none;
 }

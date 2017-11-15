@@ -275,7 +275,7 @@
 
   function latLngToVec3(point, radius = state.worldRadius) {
     let lat = (point[0]) * Math.PI / 180,
-      lng = ((state.location === "inner" ? 1 : -1) * point[1]) * Math.PI / 180;
+      lng = ((state.location === "inner" ?  1 : -1) * point[1]) * Math.PI / 180;
 
     let x = radius * Math.cos(lat) * Math.cos(lng);
     let z = radius * Math.cos(lat) * Math.sin(lng);
