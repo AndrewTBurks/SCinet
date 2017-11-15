@@ -6,7 +6,6 @@
     svg: d3.select("#root")
   };
 
-
   let colorScale = d3.scaleQuantile()
     .domain([Math.pow(2, 10), Math.pow(2, 20), Math.pow(2, 30), Math.pow(2, 40)])
     .range(['#fef0d9', '#fdcc8a', '#fc8d59', '#e34a33']);
@@ -149,16 +148,6 @@
       .attr("cy", d => state.height - d.y - d.height / 2 + margin)
       .attr("r", 10);
 
-    // svg.selectAll(".backboneG")
-    //   .data([backbones[2]]) // put back rest when I  have backbone info
-    //   .enter().append("g")
-    //   .attr("class", "backboneG")
-    //   .attr("id", d => d.id)
-    //   .each(function (d) {
-    //     d.group = d3.select(this);
-    //     return d;
-    //   });
-
     let worldProj = d3.geoEquirectangular()
       .translate([state.width / 2 + margin, 3 * state.height / 2 + 3 * margin])
       .scale(175)
@@ -189,7 +178,6 @@
         .enter().append("path")
         .attr("class", "country")
         .attr("d", path)
-        .datum(d => console.log(d))
         .on("mouseover", function (d) {
           d3.select(this).raise();
         })
@@ -233,7 +221,7 @@
         //   };
         // });
 
-        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/flow_trend_62/json?minValue=0&aggMode=max", function (err, flows) {
+        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/sc17-booth-as-country/json?minValue=0.001&aggMode=max", function (err, flows) {
           // console.log(flows.length);
           let boothLinks = [];
           let countryLinks = [];
@@ -244,15 +232,15 @@
           // add 5 fake data to test
           // for (let i = 0; i < 5; i++) {
           //   flows.push({
-          //     key: "" + state.booths[boothIDs[Math.floor(Math.random() * boothIDs.length)]].id + "_SEP_" + 
+          //     key: "" + state.booths[boothIDs[Math.floor(Math.random() * boothIDs.length)]].id + ",111-222," + 
           //     state.countries[countryIDs[Math.floor(Math.random() * countryIDs.length)]].id,
-          //     value: Math.pow(Math.random() * Math.pow(10, 20), 2)
+          //     value: Math.pow(Math.random() * Math.pow(2, 10), 4)
           //   });
           // }
 
 
           for (flow of flows) {
-            let sourceDest = flow.key.split("_SEP_");
+            let sourceDest = flow.key.split(",");
 
             if (state.booths[sourceDest[0]]) {
               boothLinks.push({
@@ -262,10 +250,10 @@
               });
             }
 
-            if (state.countries[sourceDest[1]]) {
+            if (state.countries[sourceDest[2]]) {
               countryLinks.push({
                 source: nodes[0], // will split out into backbones once we have data
-                target: state.countries[sourceDest[1]],
+                target: state.countries[sourceDest[2]],
                 weight: +flow.value
               });
             }
