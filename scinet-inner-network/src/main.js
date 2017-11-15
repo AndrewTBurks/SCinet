@@ -53,21 +53,21 @@
     state.width = d3.max(Object.values(state.booths), (booth) => booth.width + booth.x);
     state.height = d3.max(Object.values(state.booths), (booth) => booth.height + booth.y);
 
-    
+
     let margin = 50;
     let width = state.boothWidth;
     let height = state.height;
-    
+
     let svg = state.svg
-    .style("width", "100%")
-    .style("height", "100%")
-    .attr("viewBox", [0, 0, state.width + 4 * margin, state.height * 2 + 4 * margin].join(" "));
-    
+      .style("width", "100%")
+      .style("height", "100%")
+      .attr("viewBox", [0, 0, state.width + 4 * margin, state.height * 2 + 4 * margin].join(" "));
+
     let boothTip = d3.tip().attr('class', 'd3-tip').direction('s').html(d => "Booth ID:" + d.id);
     svg.call(boothTip);
-    
-    // let countryTip = d3.tip().attr('class', 'd3-tip').html(d => "" + d[2]);
-    // svg.call(countryTip);
+
+    let countryTip = d3.tip().attr('class', 'd3-tip').html(d => `${d.abbr2}: ${d.name}`);
+    svg.call(countryTip);
 
     let boothIDs = Object.keys(state.booths);
 
@@ -82,11 +82,17 @@
       .attr("height", d => d.height)
       .attr("x", d => d.x + margin)
       .attr("y", d => state.height - d.y - d.height + margin)
-      .on("mouseover", function(d) {
+      .on("mouseover", function (d) {
         d3.select(this).raise();
+        state.hoveredBooth = d.id;
+
         d3.select(this).each(boothTip.show);
       })
-      .on("mouseout", boothTip.hide);
+      .on("mouseout", function (d) {
+        state.hoveredBooth = null;
+
+        d3.select(this).each(boothTip.hide);
+      });
 
     // .on("click", function (d) {
     //   if (d3.select(this).classed("selected")) {
@@ -100,53 +106,6 @@
     //     remakeLinksAround(d);
     //   }
     // });
-
-    let backbones = {
-      "b1": {
-        id: "b1",
-        x: state.width / 10,
-        y: 0 - margin,
-        width: 20,
-        height: 20
-      },
-      "b2": {
-        id: "b2",
-        x: 3 * state.width / 10,
-        y: 0 - margin,
-        width: 20,
-        height: 20
-      },
-      "b3": {
-        id: "b3",
-        x: 5 * state.width / 10,
-        y: 0 - margin,
-        width: 20,
-        height: 20
-      },
-      "b4": {
-        id: "b4",
-        x: 7 * state.width / 10,
-        y: 0 - margin,
-        width: 20,
-        height: 20
-      },
-      "b5": {
-        id: "b5",
-        x: 9 * state.width / 10,
-        y: 0 - margin,
-        width: 20,
-        height: 20
-      }
-    };
-
-    svg.selectAll(".backbone")
-      .data([Object.values(backbones)[2]]) // put back rest when I  have backbone info
-      // .data(backbones)
-      .enter().append("circle")
-      .attr("class", "backbone")
-      .attr("cx", d => d.x + d.width / 2 + margin)
-      .attr("cy", d => state.height - d.y - d.height / 2 + margin)
-      .attr("r", 10);
 
     let worldProj = d3.geoEquirectangular()
       .translate([state.width / 2 + margin, 3 * state.height / 2 + 3 * margin])
@@ -178,17 +137,33 @@
         .enter().append("path")
         .attr("class", "country")
         .attr("d", path)
+        .datum((d) => {
+          if (countryCodesFull[d.id]) {
+            d.abbr2 = countryCodesFull[d.id]["alpha-2"];
+            d.name = countryCodesFull[d.id].name;
+          }
+          return d;
+        })
         .on("mouseover", function (d) {
           d3.select(this).raise();
+          state.hoveredCountry = d.abbr2;
+
+          d3.select(this).each(countryTip.show);
         })
+        .on("mouseout", function (d) {
+          state.hoveredCountry = null;
+
+          d3.select(this).each(countryTip.hide);
+        })
+        .on("click", function(d) {
+          console.log(d);
+        });
 
       setInterval(function () {
         // remakeLinksAround(Object.values(backbones));
-        remakeLinksAround([Object.values(backbones)[2]]);
+        remakeLinksAround();
       }, 500);
     });
-
-
 
     function recolorNodes() {
 
@@ -209,7 +184,7 @@
       // http://inmon.sc17.org/sflow-rt/activeflows/ALL/flow_trend_3/json?maxFlows=20&minValue=0&aggMode=max
       // group:ipsource:boothid,country:ipdestination
 
-      if (nodes) {
+      // if (nodes) {
         let max = Math.pow(2, 10);
         let linkCount = 50;
 
@@ -221,39 +196,24 @@
         //   };
         // });
 
-        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/sc17-booth-as-country/json?minValue=0.001&aggMode=max", function (err, flows) {
-          // console.log(flows.length);
+        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/sc17-booth-country/json?minValue=0.001&aggMode=max", function (err, flows) {
+        // console.log(flows.length);
           let boothLinks = [];
           let countryLinks = [];
 
           let boothIDs = Object.keys(state.booths);
           let countryIDs = Object.keys(state.countries);
 
-          // add 5 fake data to test
-          // for (let i = 0; i < 5; i++) {
-          //   flows.push({
-          //     key: "" + state.booths[boothIDs[Math.floor(Math.random() * boothIDs.length)]].id + ",111-222," + 
-          //     state.countries[countryIDs[Math.floor(Math.random() * countryIDs.length)]].id,
-          //     value: Math.pow(Math.random() * Math.pow(2, 10), 4)
-          //   });
-          // }
-
+          let bcLinks = [];
 
           for (flow of flows) {
             let sourceDest = flow.key.split(",");
+            // let sourceDest = flow.key.split("_SEP_");
 
-            if (state.booths[sourceDest[0]]) {
-              boothLinks.push({
-                source: nodes[0], // will split out into backbones once we have data
+            if (state.booths[sourceDest[0]] && state.countries[sourceDest[1]]) {
+              bcLinks.push({
+                source: state.countries[sourceDest[1]],
                 target: state.booths[sourceDest[0]],
-                weight: +flow.value
-              });
-            }
-
-            if (state.countries[sourceDest[2]]) {
-              countryLinks.push({
-                source: nodes[0], // will split out into backbones once we have data
-                target: state.countries[sourceDest[2]],
                 weight: +flow.value
               });
             }
@@ -261,78 +221,49 @@
           }
 
           // draw booth links
-          for (let edge of boothLinks) {
+          for (let edge of bcLinks) {
             calculateEdgeAngles(edge);
           }
 
-          for (let backbone of nodes) {
-            let edgesOut = boothLinks.filter(l => l.source === backbone);
-            findBundleControlPoints(backbone, [], edgesOut);
-
+          for (let c of Object.keys(state.countries)) {
+            let country = state.countries[c];
+            let edgesIn = bcLinks.filter(l => l.source === country);
+            console.log(edgesIn.length);
+            findBundleControlPoints(country, edgesIn, []);
           }
 
           for (let id of Object.keys(state.booths)) {
-            let edgesIn = boothLinks.filter(l => l.target === state.booths[id]);
-            findBundleControlPoints(state.booths[id], edgesIn, []);
+            let edgesOut = bcLinks.filter(l => l.target === state.booths[id]);
+            console.log(edgesOut.length);
+            findBundleControlPoints(state.booths[id], [], edgesOut);
           }
 
-          let boothBind =
-            svg.selectAll(".boothConnection")
-            .data(boothLinks);
+          let boothBind = svg.selectAll(".boothConnection")
+            .data(bcLinks);
 
           boothBind.exit().remove();
 
           svg.selectAll(".boothConnection")
             .attr("d", linkToBezier)
+            .attr("class", (d) => "boothConnection b" + d.target.id + " c" + d.source.id)
             .transition()
             .style("stroke", d => colorScale(d.weight))
             .style("stroke-width", (d) => widthScale(d.weight))
             .style("stroke-opacity", (d) => opacScale(d.weight));
 
           boothBind.enter().append("path")
-            .attr("class", "boothConnection")
+            .attr("class", (d) => "boothConnection b" + d.target.id + " c" + d.source.id)
             .attr("d", linkToBezier)
             .style("stroke", d => colorScale(d.weight))
             .style("stroke-width", (d) => widthScale(d.weight))
             .style("stroke-opacity", (d) => opacScale(d.weight));
 
-          // draw "country" links
-          for (let edge of countryLinks) {
-            calculateEdgeAngles(edge);
-          }
+          svg.selectAll(".boothConnection").style("display", function() {
+            if (!state.hoveredBooth && !state.hoveredCountry) return "initial";
 
-          for (let backbone of nodes) {
-            let edgesOut = countryLinks.filter(l => l.source === backbone);
-            findBundleControlPoints(backbone, [], edgesOut);
-
-          }
-
-          for (let c of Object.keys(state.countries)) {
-            let country = state.countries[c];
-            let edgesIn = countryLinks.filter(l => l.target === country);
-            findBundleControlPoints(country, edgesIn, []);
-          }
-
-          let countryBind = svg.selectAll(".countryConnection")
-            .data(countryLinks);
-            
-          countryBind.exit().remove();
-
-          svg.selectAll(".countryConnection")
-            .attr("d", linkToBezier)
-            .transition()
-            .style("stroke", d => colorScale(d.weight))
-            .style("stroke-width", (d) => widthScale(d.weight))
-            .style("stroke-opacity", (d) => opacScale(d.weight));
-
-          countryBind.enter().append("path")
-            .attr("class", "countryConnection")
-            .attr("d", linkToBezier)
-            .style("stroke", d => colorScale(d.weight))
-            .style("stroke-width", (d) => widthScale(d.weight))
-            .style("stroke-opacity", (d) => opacScale(d.weight));
+            return d3.select(this).classed("b" + state.hoveredBooth)  || d3.select(this).classed("c" + state.hoveredCountry) ? "initial" : "none"
+          });          
         });
-      }
     }
 
     function findBundleControlPoints(node, edgesIn, edgesOut) {
@@ -349,8 +280,8 @@
       let maxBundleAngle = 45;
       let degreeTolerance = 15;
 
-      let maxBundleDistance = 100;
-      let distanceTolerance = 50;
+      let maxBundleDistance = 300;
+      let distanceTolerance = 100;
 
       let edges = _.concat(edgesOut.map(e => {
         return {
@@ -436,10 +367,6 @@
     function getEdgeClusterControlPoint(node, edgeCluster) {
       // console.log(node, edgeCluster);
 
-      // get min distance
-      // let minDistance = d3.min(edgeCluster, e => );
-
-
       let avgAngle = _.sumBy(edgeCluster, e => e.angle) / edgeCluster.length;
       let lengthMult = 3 / 4;
       let angleMult = d3.scaleLinear()
@@ -456,9 +383,6 @@
       let sin = Math.sin(avgAngle * Math.PI / 180);
 
       for (let e of edgeCluster) {
-        // let length = Math.sqrt(
-        //   Math.pow(e.coord.x - node.x, 2) + Math.pow(e.coord.y - node.y, 2)
-        // ) * lengthMult;
 
         if (e.direction === "in") {
           e.edge.cIn = {
