@@ -160,8 +160,7 @@
         });
 
       setInterval(function () {
-        // remakeLinksAround(Object.values(backbones));
-        remakeLinksAround();
+        remakeLinks();
       }, 500);
     });
 
@@ -180,24 +179,13 @@
         });
     }
 
-    function remakeLinksAround(nodes) {
-      // http://inmon.sc17.org/sflow-rt/activeflows/ALL/flow_trend_3/json?maxFlows=20&minValue=0&aggMode=max
+    function remakeLinks() {
       // group:ipsource:boothid,country:ipdestination
 
-      // if (nodes) {
         let max = Math.pow(2, 10);
         let linkCount = 50;
 
-        // let links = d3.range(linkCount * nodes.length).map(() => {
-        //   return {
-        //     source: nodes[Math.floor(Math.random() * nodes.length)],
-        //     target: state.booths[boothIDs[Math.floor(Math.random() * boothIDs.length)]],
-        //     weight: Math.pow(Math.random() * max, 4)
-        //   };
-        // });
-
         d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/sc17-booth-country/json?minValue=0.001&aggMode=max", function (err, flows) {
-        // console.log(flows.length);
           let boothLinks = [];
           let countryLinks = [];
 
@@ -208,7 +196,6 @@
 
           for (flow of flows) {
             let sourceDest = flow.key.split(",");
-            // let sourceDest = flow.key.split("_SEP_");
 
             if (state.booths[sourceDest[0]] && state.countries[sourceDest[1]]) {
               bcLinks.push({
@@ -217,7 +204,6 @@
                 weight: +flow.value
               });
             }
-
           }
 
           // draw booth links
@@ -227,15 +213,14 @@
 
           for (let c of Object.keys(state.countries)) {
             let country = state.countries[c];
-            let edgesIn = bcLinks.filter(l => l.source === country);
-            console.log(edgesIn.length);
-            findBundleControlPoints(country, edgesIn, []);
+            let edgesOut = bcLinks.filter(l => l.source === country);
+            
+            findBundleControlPoints(country, [], edgesOut);
           }
 
           for (let id of Object.keys(state.booths)) {
-            let edgesOut = bcLinks.filter(l => l.target === state.booths[id]);
-            console.log(edgesOut.length);
-            findBundleControlPoints(state.booths[id], [], edgesOut);
+            let edgesIn = bcLinks.filter(l => l.target === state.booths[id]);
+            findBundleControlPoints(state.booths[id], edgesIn, []);
           }
 
           let boothBind = svg.selectAll(".boothConnection")
@@ -365,13 +350,12 @@
     }
 
     function getEdgeClusterControlPoint(node, edgeCluster) {
-      // console.log(node, edgeCluster);
 
-      let avgAngle = _.sumBy(edgeCluster, e => e.angle) / edgeCluster.length;
-      let lengthMult = 3 / 4;
+      let avgAngle = _.sumBy(edgeCluster, e => e.angle) / (edgeCluster.length);
+      let lengthMult = 1/2;
       let angleMult = d3.scaleLinear()
         .domain([0, 45 / 2])
-        .range([1, 1]);
+        .range([1, 1.5]);
       // let angleMult = ()=> 1;
 
       // console.log(edgeCluster);
