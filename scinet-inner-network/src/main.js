@@ -355,7 +355,7 @@
       let lengthMult = 1/2;
       let angleMult = d3.scaleLinear()
         .domain([0, 45 / 2])
-        .range([1, 1.5]);
+        .range([1, 0.75]);
       // let angleMult = ()=> 1;
 
       // console.log(edgeCluster);
