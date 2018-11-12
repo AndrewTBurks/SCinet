@@ -85,7 +85,7 @@
 
       // freegeoip.net/{format}/{IP_or_hostname}
 
-      d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/world-map/json?maxFlows=20&minValue=0&aggMode=max", function (err, json) {
+      d3.json("https://inmon.sc18.org/sflow-rt/activeflows/ALL/world-map/json?maxFlows=20&minValue=0&aggMode=max", function (err, json) {
 
         if (err) console.warn(err);
         // console.log(json);

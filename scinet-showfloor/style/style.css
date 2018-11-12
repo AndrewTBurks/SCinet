@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    font-family: Courier New, Courier, monospace;
+    color: white;
+    font-weight: bold;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+#root {
+    background: black;
+}
+
+.backbone {
+    stroke: white;
+    fill: #888;
+}
+
+.booth, .country {
+    fill: #333333;
+    stroke: #888888;
+    stroke-width: 5px;
+    opacity: 50%;
+}
+
+.booth:hover, .country:hover {
+    fill: #333333;
+    stroke: white;
+    /* stroke-width: 2px; */
+}
+
+.boothConnection,
+.countryConnection {
+    fill: none;
+    stroke: red;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    /* opacity: 0.25; */
+    pointer-events: none;
+}

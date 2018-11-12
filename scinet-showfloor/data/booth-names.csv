@@ -1,0 +1,418 @@
+Name,Use intra rack backbone,Number,Organization,Opt out,Dnoc,Active DNOC
+Booth 2,False,2,Student Cluster Competition,False,,None
+Booth 1,False,1,Student Cluster Competition,False,,None
+Booth 3,False,3,Student Cluster Competition,False,,None
+Booth 4,False,4,Student Cluster Competition,False,DNOC 571,DNOC 571
+Booth 5,False,5,Student Cluster Competition,False,,None
+Booth 6,False,6,Student Cluster Competition,False,,None
+Booth 7,False,7,Student Cluster Competition,False,,None
+Booth 8,False,8,Student Cluster Competition,False,,None
+Booth 9,False,9,Student Cluster Competition,False,,None
+Booth 10,False,10,Student Cluster Competition,False,,None
+Booth 11,False,11,Student Cluster Competition,False,DNOC 571,DNOC 571
+Booth 12,False,12,Student Cluster Competition,False,,None
+Booth 13,False,13,Student Cluster Competition,False,,None
+Booth 14,False,14,Student Cluster Competition,False,,None
+Booth 15,False,15,Student Cluster Competition,False,,None
+Booth 16,False,16,Student Cluster Competition,False,,None
+Booth 17,False,17,Student Cluster Competition,False,DNOC 571,DNOC 571
+Booth 18,False,18,Student Cluster Competition,False,,None
+Booth 100,False,100,RSC Technologies,False,DNOC 614,DNOC 614
+Booth 106,False,106,,False,DNOC 614,DNOC 614
+Booth 112,False,112,,False,DNOC 614,DNOC 614
+Booth 116,False,116,,False,DNOC 614,DNOC 614
+Booth 124,False,124,SDSC,False,DNOC 614,DNOC 614
+Booth 130,False,130,,False,DNOC 614,DNOC 614
+Booth 138,False,138,,False,DNOC 614,DNOC 614
+Booth 142,False,142,,False,DNOC 614,DNOC 614
+Booth 148,False,148,"Qumulo, Inc.",False,DNOC 571,DNOC 571
+Booth 152,False,152,Xilinx,False,DNOC 614,DNOC 614
+Booth 200,False,200,CEJN North America,False,DNOC 614,DNOC 614
+Booth 201,False,201,EPCC - The University of Edinburgh,True,DNOC 614,DNOC 614
+Booth 204,False,204,CPC,False,DNOC 614,DNOC 614
+Booth 206,False,206,D-Wave Systems Inc.,False,DNOC 614,DNOC 614
+Booth 207,False,207,"HSS - State Key Laboratory of High-end Server & Storage Technology, Asia Supercomputer Community",False,DNOC 614,DNOC 614
+Booth 212,False,212,Rensselaer Polytechnic Institute,False,DNOC 614,DNOC 614
+Booth 213,False,213,Data in Science Corporation,False,DNOC 614,DNOC 614
+Booth 216,False,216,Kansai University,False,DNOC 614,DNOC 614
+Booth 218,False,218,Nortek Global HVAC ServerCool,False,DNOC 614,DNOC 614
+Booth 219,False,219,RIST Kobe Center,False,DNOC 614,DNOC 614
+Booth 224,False,224,Kyoto University,False,DNOC 614,DNOC 614
+Booth 225,False,225,XSEDE,True,DNOC 614,DNOC 614
+Booth 228,False,228,SKA Organisation,False,DNOC 614,DNOC 614
+Booth 230,False,230,Irish Centre for High-End Computing,True,DNOC 614,DNOC 614
+Booth 231,False,231,SSERCA,False,DNOC 614,DNOC 614
+Booth 234,False,234,Runtime,True,DNOC 614,DNOC 614
+Booth 236,False,236,nanoPrecision Products,False,DNOC 614,DNOC 614
+Booth 237,False,237,Newisys,False,DNOC 614,DNOC 614
+Booth 242,False,242,ASRock Rack Inc.,False,DNOC 571,DNOC 571
+Booth 243,False,243,Motivair,False,DNOC 571,DNOC 571
+Booth 246,False,246,Thercon-LHP,False,DNOC 571,DNOC 571
+Booth 248,False,248,Fivetech Technology Inc.,False,DNOC 571,DNOC 571
+Booth 249,False,249,Rocky Mountain Advanced Computing Consortium (RMACC),False,DNOC 571,DNOC 571
+Booth 250,False,250,IntelliProp Inc.,False,DNOC 571,DNOC 571
+Booth 252,False,252,Equus Compute Solutions,True,DNOC 571,DNOC 571
+Booth 254,False,254,Aldec,False,DNOC 571,DNOC 571
+Booth 256,False,256,National Institute of Informatics,False,DNOC 571,DNOC 571
+Booth 257,False,257,M+W Group,False,DNOC 571,DNOC 571
+Booth 262,False,262,DKRZ,True,DNOC 571,DNOC 571
+Booth 263,False,263,National Radio Astronomy Observatory,True,DNOC 571,DNOC 571
+Booth 266,False,266,"University of Maryland, Baltimore County",False,DNOC 571,DNOC 571
+Booth 267,False,267,GEANT,False,DNOC 571,DNOC 571
+Booth 270,False,270,"ECCSE, Kobe University",False,DNOC 571,DNOC 571
+Booth 272,False,272,LDA Technologies,False,DNOC 571,DNOC 571
+Booth 273,False,273,SmartIOPS,False,DNOC 571,DNOC 571
+Booth 274,False,274,ScaleMatrix,False,DNOC 571,DNOC 571
+Booth 281,False,281,The University of Tennessee,False,DNOC 571,DNOC 571
+Booth 286,False,286,Energy Efficient HPC Working Group,False,DNOC 571,DNOC 571
+Booth 288,False,288,MemoScale,False,DNOC 571,DNOC 571
+Booth 289,False,289,CSCS / ETCH Zurich,False,DNOC 571,DNOC 571
+Booth 290,False,290,"Aberdeen, LLC",False,DNOC 571,DNOC 571
+Booth 292,False,292,,False,DNOC 571,DNOC 571
+Booth 293,False,293,,False,DNOC 571,DNOC 571
+Booth 294,False,294,,False,DNOC 571,DNOC 571
+Booth 295,False,295,,False,DNOC 571,DNOC 571
+Booth 301,False,301,RSC Technologies,False,DNOC 614,DNOC 614
+Booth 307,False,307,Colorado School of Mines,False,DNOC 614,DNOC 614
+Booth 313,False,313,Extoll GmbH,False,DNOC 614,DNOC 614
+Booth 319,False,319,Gompute,False,DNOC 614,DNOC 614
+Booth 325,False,325,ASETEK,False,DNOC 614,DNOC 614
+Booth 335,False,335,Georgia Institute of Technology,False,DNOC 614,DNOC 614
+Booth 343,False,343,Quantum Corporation,False,DNOC 571,DNOC 571
+Booth 349,False,349,"Cavium, Inc.",False,DNOC 571,DNOC 571
+Booth 355,False,355,NCI Australia,False,DNOC 571,DNOC 571
+Booth 357,False,357,Pawsey Supercomputing Centre,False,DNOC 571,DNOC 571
+Booth 362,False,362,Nara Institute of Science & Technology,False,DNOC 571,DNOC 571
+Booth 363,False,363,Tokyo Institute of Technology,False,DNOC 571,DNOC 571
+Booth 369,False,369,RAVE Computer,False,DNOC 571,DNOC 571
+Booth 373,False,373,Globus,False,DNOC 571,DNOC 571
+Booth 381,False,381,"Qumulo, Inc.",False,DNOC 571,DNOC 571
+Booth 388,False,388,"Eoptolink Technology Inc., Ltd",False,DNOC 571,DNOC 571
+Booth 389,False,389,Pure Storage,False,DNOC 571,DNOC 571
+Booth 394,False,394,The Khronos Group,False,DNOC 571,DNOC 571
+Booth 395,False,395,OpenHPC,False,DNOC 571,DNOC 571
+Booth 396,False,396,FusionStorm,False,DNOC 571,DNOC 571
+Booth 397,False,397,"Shenzhen 10Gtek Transceivers Co.,Ltd.",False,DNOC 571,DNOC 571
+Booth 401,False,401,Juelich Supercomputing Centre,True,DNOC 614,DNOC 614
+Booth 409,False,409,National Center for High-Performance Computing,False,DNOC 614,DNOC 614
+Booth 417,False,417,HLRS,False,DNOC 614,DNOC 614
+Booth 425,False,425,Huawei Technologies,False,DNOC 614,DNOC 614
+Booth 437,False,437,RENCI,False,DNOC 614,DNOC 614
+Booth 443,False,443,Google,False,DNOC 571,DNOC 571
+Booth 455,False,455,Virginia Tech,False,DNOC 571,DNOC 571
+Booth 463,False,463,Vanderbilt University,False,DNOC 571,DNOC 571
+Booth 471,False,471,Michigan State University/University of Michigan,False,DNOC 571,DNOC 571
+Booth 481,False,481,HEI,False,DNOC 571,DNOC 571
+Booth 489,False,489,,False,DNOC 571,DNOC 571
+Booth 491,False,491,Kingston Technology,False,DNOC 571,DNOC 571
+Booth 494,False,494,,False,DNOC 571,DNOC 571
+Booth 495,False,495,,False,DNOC 571,DNOC 571
+Booth 503,False,503,Pittsburgh Supercomputing Center,False,DNOC 614,DNOC 614
+Booth 511,False,511,Boston University,False,DNOC 614,DNOC 614
+Booth 513,False,513,The University of Tokyo,False,DNOC 614,DNOC 614
+Booth 519,False,519,"Brocade Communications Systems, Inc.",False,DNOC 614,DNOC 614
+Booth 525,False,525,SDSC,False,DNOC 614,DNOC 614
+Booth 535,False,535,University of New Mexico - CARC,True,DNOC 614,DNOC 614
+Booth 543,False,543,Mississippi State University,False,DNOC 571,DNOC 571
+Booth 551,False,551,Cornell University Center for Advanced Computing,False,DNOC 571,DNOC 571
+Booth 555,False,555,Scientific Computing World,True,DNOC 571,DNOC 571
+Booth 557,False,557,Partitioned Global Address Space (PGAS),True,DNOC 571,DNOC 571
+Booth 563,False,563,Stanford University,False,DNOC 571,DNOC 571
+DNOC 571,False,571,SCinet,False,,None
+Booth 573,False,573,Bergen Language Design Laboratory University of Bergen,True,DNOC 571,DNOC 571
+Booth 575,False,575,The Institute of Statistical Mathematics (ISM),False,DNOC 571,DNOC 571
+Booth 581,False,581,Penn State Institute for CyberScience,False,DNOC 571,DNOC 571
+Booth 587,False,587,"Institute of Industrial Science, The University of Tokyo",False,DNOC 571,DNOC 571
+Booth 593,False,593,Pacific Wave,False,DNOC 571,DNOC 571
+Booth 597,False,597,ProDesign Electronic GmbH,False,DNOC 571,DNOC 571
+Booth 601,False,601,Indiana University,False,DNOC 614,DNOC 614
+Booth 610,False,610,Allinea Software,False,DNOC 614,DNOC 614
+Booth 613,False,613,Department of Energy,False,DNOC 614,DNOC 614
+DNOC 614,False,614,SCinet,False,,None
+Booth 625,False,625,Cray Inc.,False,DNOC 614,DNOC 614
+Booth 633,False,633,ExaScaler Inc.,False,DNOC 614,DNOC 614
+Booth 643,False,643,Western Digital,True,DNOC 571,DNOC 571
+Booth 647,False,647,Kitware Inc.,False,DNOC 571,DNOC 571
+Booth 650,False,650,Aeon Computing,False,DNOC 571,DNOC 571
+Booth 653,False,653,Mellanox Technologies,False,DNOC 571,DNOC 571
+Booth 663,False,663,California Institute of Technology /CACR,False,NOC 1081,NOC 1081
+Booth 670,False,670,Metamako,False,DNOC 571,DNOC 571
+Booth 671,False,671,Panasas,False,DNOC 571,DNOC 571
+Booth 674,False,674,JAIST,False,DNOC 571,DNOC 571
+Booth 675,False,675,,False,DNOC 571,DNOC 571
+Booth 681,False,681,Xilinx,False,DNOC 571,DNOC 571
+Booth 689,False,689,Ryft,False,DNOC 571,DNOC 571
+Booth 692,False,692,BittWare,False,DNOC 571,DNOC 571
+Booth 695,False,695,National Supercomputer Center in Guangzhou,False,DNOC 571,DNOC 571
+Booth 696,False,696,Paratera,False,DNOC 571,DNOC 571
+Booth 743,False,743,CC-IN2P3 CNRS,False,DNOC 571,DNOC 571
+Booth 747,False,747,Innodisk USA Corporation,False,DNOC 571,DNOC 571
+Booth 763,False,763,California Institute of Technology /CACR,False,DNOC 571,DNOC 571
+Booth 771,False,771,CINECA,False,DNOC 571,DNOC 571
+Booth 775,False,775,INFN CNAF,False,DNOC 571,DNOC 571
+Booth 781,False,781,Elastifile,True,DNOC 571,DNOC 571
+Booth 783,False,783,Open-Silicon,False,DNOC 571,DNOC 571
+Booth 785,False,785,Dini Group,False,DNOC 571,DNOC 571
+Booth 789,False,789,SCCAS,False,DNOC 571,DNOC 571
+Booth 795,False,795,Dternity Storage by Fujifilm,False,DNOC 571,DNOC 571
+Booth 801,False,801,Arista Networks,False,DNOC 1133,DNOC 1133
+Booth 807,False,807,Intelligent Light,False,DNOC 1133,DNOC 1133
+Booth 811,False,811,CRC Press - Taylor & Francis Group,False,DNOC 1133,DNOC 1133
+Booth 813,False,813,ISC Group,False,DNOC 1133,DNOC 1133
+Booth 819,False,819,"Hitachi, Ltd.",False,DNOC 1133,DNOC 1133
+Booth 825,False,825,"Advanced Micro Devices, Inc.",False,DNOC 1133,DNOC 1133
+Booth 833,False,833,Open|SpeedShop,True,DNOC 1133,DNOC 1133
+Booth 837,False,837,Engility,False,DNOC 1133,DNOC 1133
+Booth 843,False,843,Ethernet Alliance,False,DNOC 571,DNOC 571
+Booth 849,False,849,Univa Corporation,False,DNOC 571,DNOC 571
+Booth 857,False,857,SURFsara,False,DNOC 571,DNOC 571
+Booth 863,False,863,Spectra Logic,True,DNOC 571,DNOC 571
+Booth 871,False,871,Staubli,False,DNOC 571,DNOC 571
+Booth 875,False,875,Leibniz Supercomputing Centre,False,DNOC 571,DNOC 571
+Booth 880,False,880,iStarUSA,False,DNOC 571,DNOC 571
+Booth 881,False,881,JAMSTEC,False,DNOC 571,DNOC 571
+Booth 882,False,882,NVXL Technology,False,DNOC 571,DNOC 571
+Booth 887,False,887,Arizona Research Computing,True,DNOC 571,DNOC 571
+Booth 893,False,893,AEWIN Technologies,False,DNOC 571,DNOC 571
+Booth 895,False,895,Geist,False,DNOC 571,DNOC 571
+Booth 897,False,897,,False,DNOC 571,DNOC 571
+Booth 901,False,901,GRAPE Projects,False,DNOC 1133,DNOC 1133
+Booth 905,False,905,RIKEN AICS (Advanced Institute for Computational Science),False,DNOC 1133,DNOC 1133
+Booth 906,False,906,2CRSI Corporation,False,DNOC 1133,DNOC 1133
+Booth 909,False,909,"RIKEN, Advanced Center for Computing and Communication",False,DNOC 1133,DNOC 1133
+Booth 910,False,910,Avere Systems,False,DNOC 1133,DNOC 1133
+Booth 913,False,913,Dell,False,DNOC 1133,DNOC 1133
+Booth 914,False,914,Chelsio Communications,False,DNOC 1133,DNOC 1133
+Booth 925,False,925,Hewlett Packard Enterprise,False,DNOC 1133,DNOC 1133
+Booth 932,False,932,HPCwire,False,DNOC 1133,DNOC 1133
+Booth 937,False,937,Bright Computing,False,DNOC 1133,DNOC 1133
+Booth 938,False,938,HEI,False,DNOC 1133,DNOC 1133
+Booth 943,False,943,University of Kentucky - Aggregate.Org,False,DNOC 571,DNOC 571
+Booth 947,False,947,ITBL Community,False,DNOC 571,DNOC 571
+Booth 953,False,953,"Nimbix, Inc.",False,DNOC 571,DNOC 571
+Booth 963,False,963,Virginia Tech,False,DNOC 571,DNOC 571
+Booth 970,False,970,Netcope Technologies,False,DNOC 571,DNOC 571
+Booth 971,False,971,Asian Technology Information Program - ATIP,True,DNOC 571,DNOC 571
+Booth 973,False,973,NICT,False,DNOC 571,DNOC 571
+Booth 974,False,974,Leidos,False,DNOC 571,DNOC 571
+Booth 981,False,981,PIONIER - Polish Optical Internet,False,DNOC 571,DNOC 571
+Booth 989,False,989,University of Texas Arlington - Physics Department,False,DNOC 571,DNOC 571
+Booth 992,False,992,Gen-Z Consortium,False,DNOC 571,DNOC 571
+Booth 994,False,994,,False,DNOC 571,DNOC 571
+Booth 995,False,995,University of Texas at Dallas,False,DNOC 571,DNOC 571
+Booth 996,False,996,Kalray,False,DNOC 571,DNOC 571
+Booth 1001,False,1001,"Caringo, Inc.",False,DNOC 1133,DNOC 1133
+Booth 1007,False,1007,,False,DNOC 1133,DNOC 1133
+Booth 1043,False,1043,University of Delaware,True,DNOC 571,DNOC 571
+Booth 1069,False,1069,QCT,False,DNOC 571,DNOC 571
+NOC 1081,True,1081,SCinet,False,,None
+Booth 1101,False,1101,Oracle,False,DNOC 1133,DNOC 1133
+Booth 1107,False,1107,Science and Engineering Institutes,False,DNOC 1133,DNOC 1133
+Booth 1117,False,1117,Altair,False,DNOC 1133,DNOC 1133
+Booth 1125,False,1125,Fujitsu Limited,False,DNOC 1133,DNOC 1133
+DNOC 1133,False,1133,SCinet,False,,None
+Booth 1136,False,1136,Science and Technology Facilities Council,False,DNOC 1133,DNOC 1133
+Booth 1169,False,1169,KEK,False,DNOC 571,DNOC 571
+Booth 1175,False,1175,,False,DNOC 571,DNOC 571
+Booth 1203,False,1203,Intel Corporation,False,DNOC 1133,DNOC 1133
+Booth 1211,False,1211,AIST,False,DNOC 1133,DNOC 1133
+Booth 1219,False,1219,Colfax International,False,DNOC 1133,DNOC 1133
+Booth 1225,False,1225,CSRA,False,DNOC 1133,DNOC 1133
+Booth 1231,False,1231,Numascale AS,False,DNOC 1133,DNOC 1133
+Booth 1232,False,1232,NTNU,False,DNOC 1133,DNOC 1133
+Booth 1237,False,1237,ScaleMP,False,DNOC 1133,DNOC 1133
+Booth 1242,False,1242,GIDEL,False,DNOC 571,DNOC 571
+Booth 1243,False,1243,Silicon Mechanics,False,DNOC 1771,DNOC 1771
+Booth 1246,False,1246,OpenMP ARB,False,DNOC 571,DNOC 571
+Booth 1249,False,1249,Japan Aerospace Exploration Agency (JAXA),False,DNOC 1771,DNOC 1771
+Booth 1255,False,1255,Adaptive Computing,False,DNOC 1771,DNOC 1771
+Booth 1263,False,1263,Molex LLC,False,DNOC 1771,DNOC 1771
+Booth 1269,False,1269,Tyan Computer Corporation,False,DNOC 1771,DNOC 1771
+Booth 1275,False,1275,,False,DNOC 1771,DNOC 1771
+Booth 1281,False,1281,CIENA,False,DNOC 1771,DNOC 1771
+Booth 1289,False,1289,Infinera,False,DNOC 1771,DNOC 1771
+Booth 1301,False,1301,Intel Corporation,False,DNOC 1133,DNOC 1133
+Booth 1319,False,1319,Intel Corporation,False,DNOC 1133,DNOC 1133
+Booth 1325,False,1325,DDN Storage,False,DNOC 1133,DNOC 1133
+Booth 1335,False,1335,NCSA,False,DNOC 1133,DNOC 1133
+Booth 1343,False,1343,Texas Advanced Computing Center,False,DNOC 1771,DNOC 1771
+Booth 1353,False,1353,Lenovo (United States) Inc.,False,DNOC 1771,DNOC 1771
+Booth 1362,False,1362,Nallatech,False,DNOC 1771,DNOC 1771
+Booth 1363,False,1363,Seagate,False,DNOC 1771,DNOC 1771
+Booth 1373,False,1373,Great Plains Network,False,DNOC 1771,DNOC 1771
+Booth 1381,False,1381,MPSTOR,False,DNOC 1771,DNOC 1771
+Booth 1385,False,1385,Red River,False,DNOC 1771,DNOC 1771
+Booth 1387,False,1387,Splunk,False,DNOC 1771,DNOC 1771
+Booth 1391,False,1391,"Boyd Productions, LLC",False,DNOC 1771,DNOC 1771
+Booth 1393,False,1393,"CASwell Americas, Inc.",False,DNOC 1771,DNOC 1771
+Booth 1395,False,1395,Shanghai Jiao Tong University,False,DNOC 1771,DNOC 1771
+Booth 1480,False,1480,"Polywell Computers, Inc.",True,DNOC 1771,DNOC 1771
+Booth 1481,False,1481,OptiCool Technologies,False,DNOC 1771,DNOC 1771
+Booth 1484,False,1484,SIAM- Society for Industrial and Applied Mathematics,False,DNOC 1771,DNOC 1771
+Booth 1485,False,1485,Xtreme Design,False,DNOC 1771,DNOC 1771
+Booth 1486,False,1486,"Interdisciplinary Centre for Mathematical and Computational Modelling, University of Warsaw",False,DNOC 1771,DNOC 1771
+Booth 1487,False,1487,Dolphin Interconnect Solutions AS,False,DNOC 1771,DNOC 1771
+Booth 1489,False,1489,Wave Computing,True,DNOC 1771,DNOC 1771
+Booth 1490,False,1490,Corsa Technology,False,DNOC 1771,DNOC 1771
+Booth 1491,False,1491,Sao Paulo State University - UNESP,False,DNOC 1771,DNOC 1771
+Booth 1494,False,1494,Great Wall Power Supply,False,DNOC 1771,DNOC 1771
+Booth 1495,False,1495,Coriant,False,DNOC 1771,DNOC 1771
+Booth 1501,False,1501,Microsoft,False,DNOC 1717,DNOC 1717
+Booth 1511,False,1511,Atipa Technologies,False,DNOC 1717,DNOC 1717
+Booth 1517,False,1517,NEC Corporation,False,DNOC 1717,DNOC 1717
+Booth 1525,False,1525,IBM,False,DNOC 1717,DNOC 1717
+Booth 1535,False,1535,NCAR,False,DNOC 1717,DNOC 1717
+Booth 1543,False,1543,NASA,False,DNOC 1771,DNOC 1771
+Booth 1553,False,1553,Dawning Information Industry (Beijing) Corp. Ltd.,False,DNOC 1771,DNOC 1771
+Booth 1563,False,1563,SLURM,False,DNOC 1771,DNOC 1771
+Booth 1571,False,1571,Purdue University,False,DNOC 1771,DNOC 1771
+Booth 1580,False,1580,"Shenzhen Gigalight Technology Co., Ltd.",False,DNOC 1771,DNOC 1771
+Booth 1581,False,1581,ASG Technologies,False,DNOC 1771,DNOC 1771
+Booth 1584,False,1584,Crossfield Technology LLC,False,DNOC 1771,DNOC 1771
+Booth 1585,False,1585,"Shenzhen Sinovo Telecom Co,.Ltd",False,DNOC 1771,DNOC 1771
+Booth 1586,False,1586,AMAX,False,DNOC 1771,DNOC 1771
+Booth 1587,False,1587,OpenCAPI Consortium,False,DNOC 1771,DNOC 1771
+Booth 1588,False,1588,"Chilldyne, Inc.",False,DNOC 1771,DNOC 1771
+Booth 1589,False,1589,,False,DNOC 1771,DNOC 1771
+Booth 1591,False,1591,Wakefield-Vette,False,DNOC 1771,DNOC 1771
+Booth 1595,False,1595,Viavi Solutions,False,DNOC 1771,DNOC 1771
+Booth 1597,False,1597,Dynatron Corporation,False,DNOC 1771,DNOC 1771
+Booth 1601,False,1601,CoolIT Systems Inc.,False,DNOC 1717,DNOC 1717
+Booth 1611,False,1611,SUPERMICRO,False,DNOC 1717,DNOC 1717
+Booth 1625,False,1625,,False,DNOC 1717,DNOC 1717
+Booth 1635,False,1635,University of Utah,False,DNOC 1717,DNOC 1717
+Booth 1643,False,1643,Inspur,False,DNOC 1771,DNOC 1771
+Booth 1653,False,1653,Center for Data Intensive Science - Open Commons Consortium,False,NOC 1081,NOC 1081
+Booth 1663,False,1663,"University of Notre Dame, Center for Research Computing",False,DNOC 1771,DNOC 1771
+Booth 1671,False,1671,King Abdullah University of Science and Technology,False,DNOC 1771,DNOC 1771
+Booth 1680,False,1680,Texas Tech University,False,DNOC 1771,DNOC 1771
+Booth 1681,False,1681,SUSE LLC,False,DNOC 1771,DNOC 1771
+Booth 1684,False,1684,Teradactyl LLC,True,DNOC 1771,DNOC 1771
+Booth 1688,False,1688,Iron Mountain,False,DNOC 1771,DNOC 1771
+Booth 1689,False,1689,"Center for Manycore Programming, Seoul National University",False,DNOC 1771,DNOC 1771
+Booth 1690,False,1690,Genesis Connected Solutions,False,DNOC 1771,DNOC 1771
+Booth 1694,False,1694,European Exascale Projects,False,DNOC 1771,DNOC 1771
+Booth 1695,False,1695,,False,DNOC 1771,DNOC 1771
+Booth 1701,False,1701,Internet2,False,DNOC 1717,DNOC 1717
+Booth 1707,False,1707,RAID Inc.,False,DNOC 1717,DNOC 1717
+Booth 1715,False,1715,Rogue Wave Software,False,DNOC 1717,DNOC 1717
+DNOC 1717,False,1717,SCinet,False,,None
+Booth 1719,False,1719,StarNet Communications,False,DNOC 1717,DNOC 1717
+Booth 1725,False,1725,BOXX Technologies,False,DNOC 1717,DNOC 1717
+Booth 1729,False,1729,X-ISS,True,DNOC 1717,DNOC 1717
+Booth 1731,False,1731,University of Southern California,False,DNOC 1717,DNOC 1717
+Booth 1737,False,1737,,False,DNOC 1717,DNOC 1717
+Booth 1743,False,1743,Louisiana State University,False,DNOC 1771,DNOC 1771
+Booth 1755,False,1755,NIST (National Institute of Standards and Technology),True,DNOC 1771,DNOC 1771
+Booth 1757,False,1757,Samtec,False,DNOC 1771,DNOC 1771
+Booth 1763,False,1763,Red Hat,False,DNOC 1771,DNOC 1771
+DNOC 1771,False,1771,SCinet,False,,None
+Booth 1775,False,1775,Boston Ltd.,False,DNOC 1771,DNOC 1771
+Booth 1781,False,1781,"Arm, Inc.",False,DNOC 1771,DNOC 1771
+Booth 1787,False,1787,The George Washington University,False,DNOC 1771,DNOC 1771
+Booth 1791,False,1791,ManyCoreSoft,False,DNOC 1771,DNOC 1771
+Booth 1795,False,1795,Lincoln Laboratory Massachusetts Institute of Technology,False,DNOC 1771,DNOC 1771
+Booth 1797,False,1797,Colorado Engineering Inc.,False,DNOC 1771,DNOC 1771
+Booth 1801,False,1801,Penguin Computing,False,DNOC 1717,DNOC 1717
+Booth 1809,False,1809,NVIDIA,False,DNOC 1717,DNOC 1717
+Booth 1814,False,1814,"Red Barn Technology Group, Inc.",False,DNOC 1717,DNOC 1717
+Booth 1816,False,1816,General Atomics,False,DNOC 1717,DNOC 1717
+Booth 1818,False,1818,Numerical Algorithms Group,True,DNOC 1717,DNOC 1717
+Booth 1825,False,1825,PGI,False,DNOC 1717,DNOC 1717
+Booth 1828,False,1828,MNM Team,False,DNOC 1717,DNOC 1717
+Booth 1833,False,1833,Green Revolution Cooling,False,DNOC 1717,DNOC 1717
+Booth 1837,False,1837,PC Cluster Consortium,False,DNOC 1717,DNOC 1717
+Booth 1838,False,1838,Alpha Data,False,DNOC 1717,DNOC 1717
+Booth 1843,False,1843,"CCS/JCAHPC, University of Tsukuba",False,DNOC 1771,DNOC 1771
+Booth 1849,False,1849,"ITC/JCAHPC, The University of Tokyo",False,DNOC 1771,DNOC 1771
+Booth 1855,False,1855,KISTI,False,DNOC 1771,DNOC 1771
+Booth 1858,False,1858,HPC Advisory Council,False,DNOC 1771,DNOC 1771
+Booth 1863,False,1863,VR Study Meeting,False,DNOC 1771,DNOC 1771
+Booth 1865,False,1865,Saitama University,False,DNOC 1771,DNOC 1771
+Booth 1867,False,1867,University at Buffalo/ Center for Computational Research,False,DNOC 1771,DNOC 1771
+Booth 1870,False,1870,Fabriscale Technologies AS,True,DNOC 1771,DNOC 1771
+Booth 1873,False,1873,Cooltera Limited,False,DNOC 1771,DNOC 1771
+Booth 1875,False,1875,The Ohio State Unversity,True,DNOC 1771,DNOC 1771
+Booth 1881,False,1881,"ZIH, TU Dresden",True,DNOC 1771,DNOC 1771
+Booth 1886,False,1886,Reflex CES,False,DNOC 1771,DNOC 1771
+Booth 1889,False,1889,NetApp,False,DNOC 1771,DNOC 1771
+Booth 1894,False,1894,Rutgers University,False,DNOC 1771,DNOC 1771
+Booth 1895,False,1895,Rescale,False,DNOC 1771,DNOC 1771
+Booth 1925,False,1925,Bull,False,DNOC 1717,DNOC 1717
+Booth 1931,False,1931,Advanced HPC Inc.,False,DNOC 1717,DNOC 1717
+Booth 1935,False,1935,University of Houston,True,DNOC 1717,DNOC 1717
+Booth 1936,False,1936,,False,DNOC 1717,DNOC 1717
+Booth 1943,False,1943,CMC - Osaka University,False,DNOC 1771,DNOC 1771
+Booth 1949,False,1949,Tohoku University,False,DNOC 1771,DNOC 1771
+Booth 1955,False,1955,Omnibond,False,DNOC 1771,DNOC 1771
+Booth 1962,False,1962,CCX Corporation,False,DNOC 1771,DNOC 1771
+Booth 1963,False,1963,Micron Technology,False,DNOC 1771,DNOC 1771
+Booth 1964,False,1964,Starfish Storage,True,DNOC 1771,DNOC 1771
+Booth 1969,False,1969,Clemson University,True,DNOC 1771,DNOC 1771
+Booth 1972,False,1972,Sans Digital Technology Inc.,False,DNOC 1771,DNOC 1771
+Booth 1975,False,1975,Barcelona Supercomputing Center,False,DNOC 1771,DNOC 1771
+Booth 1976,False,1976,Advanced Clustering Technologies,False,DNOC 1771,DNOC 1771
+Booth 1981,False,1981,Texas A&M University,False,DNOC 1771,DNOC 1771
+Booth 1989,False,1989,Japan Science and Technology Agency,False,DNOC 1771,DNOC 1771
+Booth 1995,False,1995,AIC,False,DNOC 1771,DNOC 1771
+Booth 2001,False,2001,Microway Inc.,True,DNOC 1717,DNOC 1717
+Booth 2007,False,2007,Ohio Supercomputer Center,True,DNOC 1717,DNOC 1717
+Booth 2013,False,2013,Ace Computers,False,DNOC 1717,DNOC 1717
+Booth 2019,False,2019,Cisco Systems,False,DNOC 1717,DNOC 1717
+Booth 2025,False,2025,MathWorks,False,DNOC 1717,DNOC 1717
+Booth 2031,False,2031,CEA,False,DNOC 1717,DNOC 1717
+Booth 2037,False,2037,University of Illinois - Parallel Computing Institute,False,DNOC 1717,DNOC 1717
+Booth 2043,False,2043,Inria,False,DNOC 1771,DNOC 1771
+Booth 2049,False,2049,One Stop Systems,True,DNOC 1771,DNOC 1771
+Booth 2055,False,2055,"SHREC (the NSF Center for Space,  High-Performance, and Resilient Computing)",False,DNOC 1771,DNOC 1771
+Booth 2059,False,2059,Grundfos Operation - Grundfos Direct Sensors,False,DNOC 1771,DNOC 1771
+Booth 2063,False,2063,"Shenzhen Guoxinhengyu Technology Co., Ltd.",False,DNOC 1771,DNOC 1771
+Booth 2069,False,2069,netlist,False,DNOC 1771,DNOC 1771
+Booth 2075,False,2075,H3 Platform,False,DNOC 1771,DNOC 1771
+Booth 2081,False,2081,3M,False,DNOC 1771,DNOC 1771
+Booth 2087,False,2087,,False,DNOC 1771,DNOC 1771
+Booth 2095,False,2095,VSB Technical University Ostrava,False,DNOC 1771,DNOC 1771
+Booth 2101,False,2101,Emu Technology,False,DNOC 1717,DNOC 1717
+Booth 2117,False,2117,Nice - Amazon Web Services,False,DNOC 1717,DNOC 1717
+Booth 2125,False,2125,,False,DNOC 1717,DNOC 1717
+Booth 2131,False,2131,ASUS Computer International,False,DNOC 1717,DNOC 1717
+Booth 2137,False,2137,Kyushu University,False,DNOC 1717,DNOC 1717
+Booth 2138,False,2138,Hokkaido University,False,DNOC 1717,DNOC 1717
+Booth 2143,False,2143,Fraunhofer ITWM,False,DNOC 1771,DNOC 1771
+Booth 2151,False,2151,"GIGABYTE Technology Co., Ltd.",False,DNOC 1771,DNOC 1771
+Booth 2157,False,2157,University of Maryland,False,DNOC 1771,DNOC 1771
+Booth 2158,False,2158,Calyos,False,DNOC 1771,DNOC 1771
+Booth 2163,False,2163,U.S. Naval Research Laboratory,True,DNOC 1771,DNOC 1771
+Booth 2171,False,2171,Partnership for Advanced Computing in Europe (PRACE),True,DNOC 1771,DNOC 1771
+Booth 2181,False,2181,,False,DNOC 1771,DNOC 1771
+Booth 2189,False,2189,National Supercomputing Center in Wuxi,False,DNOC 1771,DNOC 1771
+Booth 2194,False,2194,LiquidMips,True,DNOC 1771,DNOC 1771
+Booth 2195,False,2195,Fornetix,False,DNOC 1771,DNOC 1771
+Booth 2196,False,2196,I-PEX Connectors,False,DNOC 1771,DNOC 1771
+Booth 2201,False,2201,General Dynamics Mission Systems,False,DNOC 1717,DNOC 1717
+Booth 2203,False,2203,BIOS-IT,False,DNOC 1717,DNOC 1717
+Booth 2205,False,2205,The MIT Press,False,DNOC 1717,DNOC 1717
+Booth 2207,False,2207,Algo-Logic Systems Inc.,False,DNOC 1717,DNOC 1717
+Booth 2209,False,2209,Compute Canada,False,DNOC 1717,DNOC 1717
+Booth 2213,False,2213,Siemon Interconnect Solutions,False,DNOC 1717,DNOC 1717
+Booth 2215,False,2215,San Diego State University,True,DNOC 1717,DNOC 1717
+Booth 2217,False,2217,theCUBE,False,DNOC 1717,DNOC 1717
+Booth 2219,False,2219,Nagoya University,False,DNOC 1717,DNOC 1717
+Booth 2225,False,2225,CoCo Link Corp.,False,DNOC 1717,DNOC 1717
+Booth 2229,False,2229,,False,DNOC 1717,DNOC 1717
+Booth 2233,False,2233,"Charmworks, Inc.",False,DNOC 1717,DNOC 1717
+Booth 2237,False,2237,RedLine Performance Solutions LLC,False,DNOC 1717,DNOC 1717
+Booth 2243,False,2243,,False,DNOC 1771,DNOC 1771
+Booth 2245,False,2245,Enyx,False,DNOC 1771,DNOC 1771
+Booth 2247,False,2247,"XGIGA Communication Technology Co.,Ltd",False,DNOC 1771,DNOC 1771
+Booth 2249,False,2249,,False,DNOC 1771,DNOC 1771
+Booth 2251,False,2251,"Hisense Broadband, Inc.",False,DNOC 1771,DNOC 1771
+Booth 2253,False,2253,AQUILA,False,DNOC 1771,DNOC 1771
+Booth 2255,False,2255,FileCatalyst,False,DNOC 1771,DNOC 1771
+Booth 2311,False,2311,,False,DNOC 1717,DNOC 1717
+Booth 2315,False,2315,,False,DNOC 1717,DNOC 1717
+Booth 2321,False,2321,DDN Storage,False,DNOC 1717,DNOC 1717
+Booth 2325,False,2325,,False,DNOC 1717,DNOC 1717
+Booth 2331,False,2331,Micron Technology,False,DNOC 1717,DNOC 1717
+Booth 2335,False,2335,Inspur,False,DNOC 1717,DNOC 1717
+Booth 2339,False,2339,,False,DNOC 1717,DNOC 1717

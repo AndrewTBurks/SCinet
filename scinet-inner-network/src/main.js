@@ -185,7 +185,7 @@
         let max = Math.pow(2, 10);
         let linkCount = 50;
 
-        d3.json("http://inmon.sc17.org/sflow-rt/activeflows/ALL/sc17-booth-country/json?minValue=0.001&aggMode=max", function (err, flows) {
+        d3.json("http://inmon.sc18.org/sflow-rt/activeflows/ALL/sc18-booth-country/json?minValue=0.001&aggMode=max", function (err, flows) {
           let boothLinks = [];
           let countryLinks = [];
 
