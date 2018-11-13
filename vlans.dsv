@@ -1,0 +1,710 @@
+VLAN~Name~Booth org~Booth number~Net-ipv4~Net-ipv6~Internal use~IPv6 enabled~Ptp~DHCP pool size~Dhcpd statements~Comments~Infrastructure use~Persistent
+5~ESnet Testbed~None~None~None~None~True~False~False~0~~Signaling vlan needed to bridge testbed circuit through SCinet~True~
+11~sec-darkspace-f~None~None~140.221.254.0/23~2001:0468:1f07:000b::/64~True~True~False~10~~For scan detection / scanner blacklisting~True~
+12~sec-darkspace-0~None~None~140.221.128.0/23~2001:0468:1f07:000c::/64~True~True~False~200~~For scan detection / scanner blacklisting~True~
+13~Exhibitor network 13~California Institute of Technology /CACR~1413~140.221.192.0/24~2001:0468:1f07:000d::/64~False~False~False~253~~~False~
+14~Loopback conf-rtr~None~None~140.221.239.255/32~2001:0468:1f07:ffff::0255/128~True~False~False~0~~~False~
+15~wlan-scinet-private~None~None~140.221.247.0/24~2001:0468:1f07:000f::/64~True~True~False~200~~~True~
+16~wan-management~None~None~140.221.251.0/24~2001:0468:1f07:0010::/64~True~True~False~64~~~True~
+17~Loopback noc-sw-slx9450-1~None~None~140.221.237.241/32~2001:0468:1f07:ffff::0241/128~True~False~False~0~~~False~
+18~wlan-exhibit~None~None~140.221.160.0/19~2001:0468:1f07:0012::/64~True~True~False~8160~"default-lease-time 600;
+max-lease-time 600;"~"Exhibit Level wireless client IP addresses
+(lower part for Controllers & Routing)"~True~
+19~wlan-meetingrooms~None~None~140.221.144.0/20~2001:0468:1f07:0013::/64~True~True~False~4050~"default-lease-time 600;
+max-lease-time 600;"~Meeting Room Clients~True~
+20~Loopback noc-sw-qfx5110-1~None~None~140.221.237.244/32~2001:0468:1f07:ffff::0244/128~True~False~False~0~~~False~
+21~Loopback noc-sw-7280sr2-1~None~None~140.221.237.246/32~2001:0468:1f07:ffff::0246/128~True~False~False~0~~~False~
+22~faucet-dtn-test2~None~None~140.221.249.0/29~2001:0468:1f07:0016::/64~True~False~False~0~~Faucet 100G DTN Test2~False~
+23~security-management~None~None~140.221.252.0/24~2001:0468:1f07:0017::/64~True~True~False~30~~Behind conf-fw, not router.  Similar acl's as switch-management. Sec-bigbro will be bastion as well.~True~
+24~ns0~None~None~140.221.249.252/30~2001:0468:1f07:0018::/64~True~True~False~0~~~True~
+25~switch-management~None~None~140.221.250.192/26~2001:0468:1f07:0019::/64~True~True~False~0~~~True~
+26~measurement~None~None~140.221.250.96/27~2001:0468:1f07:001a::/64~True~True~False~5~~~True~
+27~power-net~None~None~140.221.250.160/27~2001:0468:1f07:001b::/64~True~True~False~2~~Network for Power Devices~True~
+28~measurement-displays~None~None~140.221.250.128/27~2001:0468:1f07:001c::/64~True~True~False~4~~~True~
+29~devops-vm~None~None~140.221.250.0/26~2001:0468:1f07:001d::/64~True~True~False~0~~~True~
+30~devops-rmgmt~None~None~140.221.250.80/28~2001:0468:1f07:001e::/64~True~True~False~0~~ITS use for remote management.  Must be restricted access.~True~
+31~devops-mgmt~None~None~140.221.250.64/28~2001:0468:1f07:001f::/64~True~True~False~2~~~True~
+32~Exhibitor network 32~KISTI~2439~140.221.195.128/25~2001:0468:1f07:0020::/64~False~False~False~63~~~False~
+33~Exhibitor network 33~Tech Data Corp~3056~140.221.209.128/27~2001:0468:1f07:0021::/64~False~False~False~7~~~False~
+34~measurement-latency~None~None~140.221.249.208/28~2001:0468:1f07:0022::/64~True~False~False~4~~Secondary measurement net~True~
+35~Exhibitor network 35~California Institute of Technology /CACR~1413~140.221.203.0/24~2001:0468:1f07:0023::/64~False~False~False~253~~~False~
+36~Exhibitor network 36~SCinet~2450~140.221.224.0/27~2001:0468:1f07:0024::/64~False~False~False~0~~~False~
+37~Exhibitor network 37~HLRS~3627~140.221.131.32/27~2001:0468:1f07:0025::/64~False~True~False~10~~~False~
+38~Exhibitor network 38~Texas Advanced Computing Center~3707~140.221.130.224/27~2001:0468:1f07:0026::/64~False~False~False~15~~~False~
+39~wlan-mgmt-oob~None~None~140.221.249.224/29~2001:0468:1f07:0027::/64~True~True~False~0~~to reduce security risks of WLC's~True~
+40~ns2~None~None~140.221.249.244/30~2001:0468:1f07:0028::/64~True~True~False~0~~~True~
+41~ns1~None~None~140.221.249.248/30~2001:0468:1f07:0029::/64~True~True~False~0~~~True~
+42~oob-mgmt~None~None~192.168.42.0/24~2001:0468:1f07:002a::/64~True~False~False~0~~VLAN for special Out-of-Band management~True~
+43~scinet~None~None~140.221.249.240/30~2001:0468:1f07:002b::/64~True~True~False~0~~~True~
+44~Loopback dnoc420-rtr~None~None~140.221.237.237/32~2001:0468:1f07:ffff::0237/128~True~False~False~0~~~False~
+45~wlan-management~None~None~140.221.244.0/23~2001:0468:1f07:002d::/64~True~True~False~400~"default-lease-time 86400;
+max-lease-time 86400;"~Wireless Management for controllers and APs~True~
+46~Loopback noc-sw-qfx5110-3~None~None~140.221.237.242/32~2001:0468:1f07:ffff::0242/128~True~False~False~0~~~False~
+48~Exhibitor network 48~Indiana University~2400~140.221.228.0/24~2001:0468:1f07:0030::/64~False~False~False~127~~~False~
+49~PTP noc-sw-slx9450-1 to perfsonar-100g-p1p2~None~None~140.221.238.252/30~2001:0468:1f07:f031::/64~True~True~True~0~~~False~
+50~Exhibitor network 50~California Institute of Technology /CACR~1413~140.221.140.0/24~2001:0468:1f07:0032::/64~False~False~False~127~~~False~
+51~Exhibitor network 51~SCinet~3651~140.221.131.0/27~2001:0468:1f07:0033::/64~False~False~False~15~~~False~
+53~Exhibitor network 53~One Stop Systems~527~140.221.130.192/27~2001:0468:1f07:0035::/64~False~False~False~15~~~False~
+54~Exhibitor network 54~Mellanox Technologies~3207~140.221.213.160/27~2001:0468:1f07:0036::/64~False~False~False~15~~~False~
+55~Loopback noc-sw-slx9450-2~None~None~140.221.237.240/32~2001:0468:1f07:ffff::0240/128~True~False~False~0~~~False~
+56~PTP noc-rtr-2 to dnoc420-rtr~None~None~140.221.239.140/30~2001:0468:1f07:f038::/64~True~True~True~0~~~False~
+57~PTP noc-rtr-1 to noc-sw-qfx5110-2~None~None~140.221.239.108/30~2001:0468:1f07:f039::/64~True~True~True~0~~~False~
+58~PTP noc-rtr-1 to noc-fw~None~None~140.221.239.188/30~2001:0468:1f07:f03a::/64~True~True~True~0~~~False~
+59~PTP noc-rtr-1 to wan-learn-100g~None~None~140.221.239.220/30~2001:0468:1f07:f03b::/64~True~True~True~0~~SC05~False~
+60~PTP conf-rtr to wan-telia~None~None~140.221.239.236/30~2001:0468:1f07:f03c::/64~True~True~True~0~~SC07~False~
+61~PTP conf-rtr to noc-rtr-1~None~None~140.221.239.244/30~2001:0468:1f07:f03d::/64~True~True~True~0~~~False~
+62~PTP conf-rtr to conf-fw~None~None~140.221.239.248/30~2001:0468:1f07:f03e::/64~True~True~True~0~~~False~
+63~PTP conf-rtr to noc-rtr-2~None~None~140.221.239.240/30~2001:0468:1f07:f03f::/64~True~True~True~0~~~False~
+64~PTP noc-rtr-1 to wan-i2-trcps~None~None~140.221.239.228/30~2001:0468:1f07:f040::/64~True~True~True~0~~SC35~False~
+65~PTP conf-rtr to wan-learn~None~None~140.221.239.232/30~2001:0468:1f07:f041::/64~True~True~True~0~~SC06~False~
+66~PTP noc-rtr-1 to wan-esnet-houston~None~None~140.221.239.224/30~2001:0468:1f07:f042::/64~True~True~True~0~~SC03~False~
+67~PTP noc-rtr-1 to dnoc2316-rtr~None~None~140.221.239.204/30~2001:0468:1f07:f043::/64~True~True~True~0~~~False~
+68~PTP noc-rtr-1 to dnoc420-rtr~None~None~140.221.239.212/30~2001:0468:1f07:f044::/64~True~True~True~0~~~False~
+69~PTP noc-rtr-1 to wan-i2-trcps-400g~None~None~140.221.239.216/30~2001:0468:1f07:f045::/64~True~True~True~0~~SC40~False~
+70~PTP noc-rtr-1 to dnoc1034-rtr~None~None~140.221.239.208/30~2001:0468:1f07:f046::/64~True~True~True~0~~~False~
+71~PTP noc-rtr-1 to dnoc4026-rtr~None~None~140.221.239.196/30~2001:0468:1f07:f047::/64~True~True~True~0~~~False~
+72~PTP noc-rtr-1 to dnoc2644-rtr~None~None~140.221.239.200/30~2001:0468:1f07:f048::/64~True~True~True~0~~~False~
+73~PTP noc-rtr-1 to noc-faucet~None~None~140.221.239.192/30~2001:0468:1f07:f049::/64~True~True~True~0~~~False~
+74~PTP noc-rtr-1 to wan-cenic-calren-hpr-sunnyvale~None~None~140.221.239.156/30~2001:0468:1f07:f04a::/64~True~True~True~0~~SC17~False~
+75~PTP noc-rtr-2 to wan-i2-al2s-400g~None~None~140.221.239.172/30~2001:0468:1f07:f04b::/64~True~True~True~0~~SC41~False~
+76~PTP noc-rtr-2 to wan-esnet-kansas~None~None~140.221.239.180/30~2001:0468:1f07:f04c::/64~True~True~True~0~~SC04~False~
+77~PTP noc-rtr-1 to noc-rtr-2~None~None~140.221.239.184/30~2001:0468:1f07:f04d::/64~True~True~True~0~~~False~
+78~PTP noc-rtr-2 to wan-i2-al2s~None~None~140.221.239.176/30~2001:0468:1f07:f04e::/64~True~True~True~0~~SC36~False~
+79~PTP noc-rtr-1 to wan-i2-al2s-400g~None~None~140.221.239.164/30~2001:0468:1f07:f04f::/64~True~True~True~0~~~False~
+80~PTP noc-rtr-1 to wan-i2-al2s~None~None~140.221.239.168/30~2001:0468:1f07:f050::/64~True~True~True~0~~SC35~False~
+81~cluster-challenge-team01~None~None~140.221.236.0/28~2001:0468:1f07:0051::/64~True~False~False~0~~~True~
+82~cluster-challenge-team02~None~None~140.221.236.16/28~2001:0468:1f07:0052::/64~True~False~False~0~~~True~
+83~cluster-challenge-team03~None~None~140.221.236.32/28~2001:0468:1f07:0053::/64~True~False~False~0~~~True~
+84~cluster-challenge-team04~None~None~140.221.236.48/28~2001:0468:1f07:0054::/64~True~False~False~0~~~True~
+85~cluster-challenge-team05~None~None~140.221.236.64/28~2001:0468:1f07:0055::/64~True~False~False~0~~~True~
+86~cluster-challenge-team06~None~None~140.221.236.80/28~2001:0468:1f07:0056::/64~True~False~False~0~~~True~
+87~cluster-challenge-team07~None~None~140.221.236.96/28~2001:0468:1f07:0057::/64~True~False~False~0~~~True~
+88~cluster-challenge-team08~None~None~140.221.236.112/28~2001:0468:1f07:0058::/64~True~False~False~0~~~True~
+89~cluster-challenge-team09~None~None~140.221.236.128/28~2001:0468:1f07:0059::/64~True~False~False~0~~~True~
+90~cluster-challenge-team10~None~None~140.221.236.144/28~2001:0468:1f07:005a::/64~True~False~False~0~~~True~
+91~cluster-challenge-team11~None~None~140.221.236.160/28~2001:0468:1f07:005b::/64~True~False~False~0~~~True~
+92~cluster-challenge-team12~None~None~140.221.236.176/28~2001:0468:1f07:005c::/64~True~False~False~0~~~True~
+93~cluster-challenge-team13~None~None~140.221.236.192/28~2001:0468:1f07:005d::/64~True~False~False~0~~~True~
+94~cluster-challenge-team14~None~None~140.221.236.208/28~2001:0468:1f07:005e::/64~True~False~False~0~~~True~
+95~cluster-challenge-team15~None~None~140.221.236.224/28~2001:0468:1f07:005f::/64~True~False~False~0~~~True~
+96~cluster-challenge-team16~None~None~140.221.236.240/28~2001:0468:1f07:0060::/64~True~False~False~0~~~True~
+97~cluster-challenge-pdu~None~None~140.221.235.128/26~2001:0468:1f07:0061::/64~True~False~False~1~~~True~
+98~cluster-challenge-management~None~None~140.221.235.224/27~2001:0468:1f07:0062::/64~True~False~False~0~~~True~
+99~Exhibitor network 99~Arista Networks~2022~140.221.222.0/27~2001:0468:1f07:0063::/64~False~False~False~15~~~False~
+100~Exhibitor network 100~D-Wave Systems Inc.~321~140.221.200.128/27~2001:0468:1f07:0064::/64~False~False~False~25~~~False~
+103~PTP noc-rtr-2 to noc-sw-7280sr2-2~None~None~140.221.239.72/30~2001:0468:1f07:f067::/64~True~True~True~0~~~False~
+104~PTP noc-rtr-2 to wan-i2-trcps~None~None~140.221.239.64/30~2001:0468:1f07:f068::/64~True~True~True~0~~~False~
+105~PTP dnoc2644-rtr to ps-10g-dnoc2644-eth10g~None~None~140.221.239.28/30~2001:0468:1f07:f069::/64~True~True~True~0~~~False~
+106~PTP conf-rtr to perfsonar-conf-eth0~None~None~140.221.239.44/30~2001:0468:1f07:f06a::/64~True~True~True~0~~~False~
+107~PTP noc-rtr-2 to perfsonar-100g~None~None~140.221.239.52/30~2001:0468:1f07:f06b::/64~True~True~True~0~~no vlan, perfsonar wants untagged traffic~False~
+108~PTP noc-rtr-1 to perfsonar-100g~None~None~140.221.239.56/30~2001:0468:1f07:f06c::/64~True~True~True~0~~no vlan, perfsonar wants untagged traffic~False~
+109~Exhibitor network 109~Algo-Logic Systems Inc.~3854~140.221.209.96/27~2001:0468:1f07:006d::/64~False~False~False~5~~~False~
+110~PTP dnoc4026-rtr to ps-1g-dnoc4026-eth1~None~None~140.221.239.36/30~2001:0468:1f07:f06e::/64~True~True~True~0~~~False~
+111~PTP dnoc4026-rtr to ps-1g-dnoc4026-eth0~None~None~140.221.239.40/30~2001:0468:1f07:f06f::/64~True~True~True~0~~~False~
+112~PTP dnoc2644-rtr to ps-10g-dnoc2644-eth0~None~None~140.221.239.32/30~2001:0468:1f07:f070::/64~True~True~True~0~~~False~
+113~PTP dnoc1034-rtr to ps-1g-dnoc1034eth1~None~None~140.221.239.12/30~2001:0468:1f07:f071::/64~True~True~True~0~~~False~
+114~PTP dnoc2316-rtr to ps-10g-dnoc2316-eth10g~None~None~140.221.239.20/30~2001:0468:1f07:f072::/64~True~True~True~0~~~False~
+115~PTP dnoc2316-rtr to ps-10g-dnoc2316-eth0~None~None~140.221.239.24/30~2001:0468:1f07:f073::/64~True~True~True~0~~~False~
+116~PTP dnoc1034-rtr to ps-1g-dnoc1034eth0~None~None~140.221.239.16/30~2001:0468:1f07:f074::/64~True~True~True~0~~~False~
+117~PTP dnoc420-rtr to ps-1g-dnoc0420-eth1~None~None~140.221.239.4/30~2001:0468:1f07:f075::/64~True~True~True~0~~~False~
+118~PTP dnoc420-rtr to ps-1g-dnoc0420eth0~None~None~140.221.239.8/30~2001:0468:1f07:f076::/64~True~True~True~0~~~False~
+119~PTP noc-sw-qfx5110-1 to perfsonar-100g-p1p1~None~None~140.221.239.0/30~2001:0468:1f07:f077::/64~True~True~True~0~~~False~
+123~PTP akard-wan-400g to noc-wan-400g-1~None~None~140.221.238.236/30~2001:0468:1f07:f07b::/64~True~True~True~0~~~False~
+124~PTP noc-rtr-1 to akard-wan-ps-100g~None~None~140.221.238.244/30~2001:0468:1f07:f07c::/64~True~True~True~0~~~False~
+125~PTP conf-rtr to perfsonar-conf-eth1~None~None~140.221.238.248/30~2001:0468:1f07:f07d::/64~True~True~True~0~~~False~
+126~PTP akard-wan-400g40g to noc-wan-400g-140g~None~None~140.221.238.240/30~2001:0468:1f07:f07e::/64~True~True~True~0~~~False~
+127~PTP conf-rtr to sec-quagga~None~None~140.221.238.228/30~2001:0468:1f07:f07f::/64~True~False~True~0~~~False~
+128~Loopback noc-rtr-1~None~None~140.221.239.253/32~2001:0468:1f07:ffff::0253/128~True~False~False~0~~~False~
+131~PTP noc-rtr-1 to noc-dtn-z9264~None~None~140.221.238.212/30~2001:0468:1f07:f083::/64~True~False~True~0~~~False~
+132~Exhibitor network 132~CoreHive Computing~539~140.221.224.224/27~2001:0468:1f07:0084::/64~False~False~False~15~~~False~
+183~Exhibitor network 183~StarLight~2851~140.221.131.128/27~2001:0468:1f07:00b7::/64~False~False~False~20~~~False~
+184~Exhibitor network 184~Globus~4201~140.221.131.64/27~2001:0468:1f07:00b8::/64~False~False~False~15~~~False~
+186~PTP noc-rtr-2 to dnoc2644-rtr~None~None~140.221.239.128/30~2001:0468:1f07:f0ba::/64~True~True~True~0~~~False~
+188~PTP noc-rtr-2 to wan-cenic-calren-hpr-losangeles~None~None~140.221.239.152/30~2001:0468:1f07:f0bc::/64~True~True~True~0~~SC19~False~
+190~Loopback noc-faucet~None~None~140.221.237.239/32~2001:0468:1f07:ffff::0239/128~True~False~False~0~~~False~
+191~Loopback akard-wan-400g~None~None~140.221.237.247/32~2001:0468:1f07:ffff::0247/128~True~False~False~0~~~False~
+192~Loopback dnoc2316-rtr~None~None~140.221.237.251/32~2001:0468:1f07:ffff::0251/128~True~False~False~0~~~False~
+193~loopback-workaround-reserved~None~None~140.221.237.252/30~2001:0468:1f07:00c1::/64~True~True~False~0~~Reserved by Routing to avoid loobback conflicts~False~
+194~faucet-ptp-noc-rtr-1~None~None~140.221.237.168/29~2001:0468:1f07:00c2::/64~True~True~False~0~~~False~
+195~faucet-ptp-noc-rtr-2~None~None~140.221.237.160/29~2001:0468:1f07:00c3::/64~True~True~False~0~~~False~
+196~Loopback dnoc4026-rtr~None~None~140.221.237.249/32~2001:0468:1f07:ffff::0249/128~True~False~False~0~~~False~
+197~Loopback dnoc2644-rtr~None~None~140.221.237.250/32~2001:0468:1f07:ffff::0250/128~True~False~False~0~~~False~
+198~Loopback noc-wan-400g-1~None~None~140.221.237.248/32~2001:0468:1f07:ffff::0248/128~True~False~False~0~~~False~
+199~Loopback noc-sw-qfx5110-2~None~None~140.221.237.243/32~2001:0468:1f07:ffff::0243/128~True~False~False~0~~~False~
+200~commodity-general~None~None~140.221.132.0/22~2001:0468:1f07:00c8::/64~True~True~False~900~~~True~
+201~commodity-tech~None~None~140.221.136.0/22~2001:0468:1f07:00c9::/64~True~True~False~900~~~True~
+202~scinet-noc~None~None~140.221.253.0/24~2001:0468:1f07:00ca::/64~True~True~False~220~~~True~
+203~commodity-admin~None~None~140.221.246.0/24~2001:0468:1f07:00cb::/64~True~True~False~20~~~True~
+204~commodity-reg~None~None~140.221.130.144/28~2001:0468:1f07:00cc::/64~True~True~False~0~~~True~
+205~commodity-regpvt~None~None~None~None~True~False~False~0~~~True~
+206~commodity-sign~None~None~140.221.130.0/25~2001:0468:1f07:00ce::/64~True~True~False~120~~~True~
+207~commodity-infra~None~None~140.221.249.128/26~2001:0468:1f07:00cf::/64~True~True~False~48~~security camera network~True~
+208~commodity-iot~None~None~140.221.249.64/26~2001:0468:1f07:00d0::/64~True~True~False~5~~Meant for Printers and other devices that should only be accessed from within SC/SCinet.~True~
+209~Loopback noc-fw~None~None~140.221.237.235/32~2001:0468:1f07:ffff::0235/128~True~False~False~0~~~False~
+210~perfsonar-docker-extreme-noc1~None~None~140.221.249.236/30~2001:0468:1f07:00d2::/64~True~False~False~0~~~False~
+211~Loopback conf-fw~None~None~140.221.237.238/32~2001:0468:1f07:ffff::0238/128~True~False~False~0~~~False~
+212~Loopback dnoc1034-rtr~None~None~140.221.237.236/32~2001:0468:1f07:ffff::0236/128~True~False~False~0~~~False~
+213~perfsonar-docker-extreme-noc2~None~None~140.221.238.224/30~2001:0468:1f07:00d5::/64~True~True~False~0~~~False~
+214~perfsonar-docker-extreme-1034~None~None~140.221.238.220/30~2001:0468:1f07:00d6::/64~True~True~False~0~~~False~
+215~perfsonar-docker-extreme-2644~None~None~140.221.249.232/30~2001:0468:1f07:00d7::/64~True~False~False~0~~~False~
+221~Loopback rp~None~None~140.221.239.254/32~2001:0468:1f07:ffff::0254/128~True~False~False~0~~~False~
+251~PTP noc-rtr-1 to wan-cenic-pacwave-sunnyvale~None~None~140.221.239.160/30~2001:0468:1f07:f0fb::/64~True~True~True~0~~SC16~False~
+253~PTP noc-rtr-2 to dnoc2316-rtr~None~None~140.221.239.132/30~2001:0468:1f07:f0fd::/64~True~True~True~0~~~False~
+254~PTP noc-rtr-2 to dnoc1034-rtr~None~None~140.221.239.136/30~2001:0468:1f07:f0fe::/64~True~True~True~0~~~False~
+255~PTP noc-rtr-1 to noc-sw-7280sr2-2~None~None~140.221.239.116/30~2001:0468:1f07:f0ff::/64~True~True~True~0~~~False~
+256~Exhibitor network 256~Qumulo, Inc.~4535~140.221.222.96/27~2001:0468:1f07:0100::/64~False~False~False~15~~~False~
+257~PTP noc-rtr-2 to wan-i2-trcps-400g~None~None~140.221.239.60/30~2001:0468:1f07:f101::/64~True~True~True~0~~~False~
+258~PTP noc-rtr-2 to noc-sw-slx9450-1~None~None~140.221.239.88/30~2001:0468:1f07:f102::/64~True~True~True~0~~~False~
+259~PTP noc-rtr-1 to noc-sw-qfx5110-3~None~None~140.221.239.104/30~2001:0468:1f07:f103::/64~True~True~True~0~~~False~
+260~PTP noc-rtr-1 to noc-sw-7280sr2-1~None~None~140.221.239.120/30~2001:0468:1f07:f104::/64~True~True~True~0~~~False~
+261~PTP noc-rtr-1 to noc-sw-qfx5110-1~None~None~140.221.239.112/30~2001:0468:1f07:f105::/64~True~True~True~0~~~False~
+262~PTP noc-rtr-1 to noc-sw-slx9450-1~None~None~140.221.239.100/30~2001:0468:1f07:f106::/64~True~True~True~0~~~False~
+263~PTP noc-rtr-2 to noc-sw-qfx5110-1~None~None~140.221.239.76/30~2001:0468:1f07:f107::/64~True~True~True~0~~~False~
+264~PTP noc-rtr-1 to noc-sw-slx9450-2~None~None~140.221.239.96/30~2001:0468:1f07:f108::/64~True~True~True~0~~~False~
+265~Exhibitor network 265~Advanced Micro Devices, Inc.~2824~140.221.200.224/27~2001:0468:1f07:0109::/64~False~False~False~15~~~False~
+266~PTP noc-rtr-2 to noc-sw-qfx5110-3~None~None~140.221.239.84/30~2001:0468:1f07:f10a::/64~True~True~True~0~~~False~
+267~PTP noc-rtr-2 to noc-sw-qfx5110-2~None~None~140.221.239.80/30~2001:0468:1f07:f10b::/64~True~True~True~0~~~False~
+268~PTP noc-rtr-2 to noc-sw-7280sr2-1~None~None~140.221.239.68/30~2001:0468:1f07:f10c::/64~True~True~True~0~~~False~
+272~Exhibitor network 272~Purdue University~1005~140.221.131.96/27~2001:0468:1f07:0110::/64~False~False~False~15~~~False~
+273~Exhibitor network 273~Microsoft~3442~140.221.235.192/27~2001:0468:1f07:0111::/64~False~False~False~15~~~False~
+274~PTP noc-rtr-2 to noc-sw-slx9450-2~None~None~140.221.239.92/30~2001:0468:1f07:f112::/64~True~True~True~0~~~False~
+275~Exhibitor network 275~StarLight~2851~140.221.131.192/27~2001:0468:1f07:0113::/64~False~False~False~20~~~False~
+276~Exhibitor network 276~StarLight~2851~140.221.131.160/27~2001:0468:1f07:0114::/64~False~False~False~15~~~False~
+277~Exhibitor network 277~StarLight~2851~140.221.131.224/27~2001:0468:1f07:0115::/64~False~False~False~15~~~False~
+278~Exhibitor network 278~California Institute of Technology /CACR~1413~140.221.142.0/24~2001:0468:1f07:0116::/64~False~False~False~253~~~False~
+279~Exhibitor network 279~StarLight~2851~140.221.141.0/27~2001:0468:1f07:0117::/64~False~False~False~15~~~False~
+280~Exhibitor network 280~StarLight~2851~140.221.141.128/27~2001:0468:1f07:0118::/64~False~False~False~15~~~False~
+281~Exhibitor network 281~StarLight~2851~140.221.141.64/27~2001:0468:1f07:0119::/64~False~False~False~15~~~False~
+282~Exhibitor network 282~StarLight~2851~140.221.141.32/27~2001:0468:1f07:011a::/64~False~False~False~15~~~False~
+283~Exhibitor network 283~StarLight~2851~140.221.141.96/27~2001:0468:1f07:011b::/64~False~False~False~15~~~False~
+284~Exhibitor network 284~Clemson University~227~140.221.143.0/27~2001:0468:1f07:011c::/64~False~False~False~15~~~False~
+285~Exhibitor network 285~StarLight~2851~140.221.141.192/27~2001:0468:1f07:011d::/64~False~False~False~15~~~False~
+286~Exhibitor network 286~StarLight~2851~140.221.141.160/27~2001:0468:1f07:011e::/64~False~False~False~15~~~False~
+287~Exhibitor network 287~StarLight~2851~140.221.141.224/27~2001:0468:1f07:011f::/64~False~False~False~15~~~False~
+288~Exhibitor network 288~The University of Tokyo~2744~140.221.143.128/27~2001:0468:1f07:0120::/64~False~False~False~20~~~False~
+289~Exhibitor network 289~Marvell/Cavium~1838~140.221.143.64/27~2001:0468:1f07:0121::/64~False~False~False~15~~~False~
+290~Exhibitor network 290~SURF~2041~140.221.143.32/27~2001:0468:1f07:0122::/64~False~True~False~20~~~False~
+291~Exhibitor network 291~National Institute of Informatics~345~140.221.143.96/27~2001:0468:1f07:0123::/64~False~False~False~15~~~False~
+292~Exhibitor network 292~Univa Corporation~2226~140.221.143.192/27~2001:0468:1f07:0124::/64~False~False~False~15~~~False~
+293~Exhibitor network 293~National Energy Technology Laboratory~2858~140.221.143.160/27~2001:0468:1f07:0125::/64~False~False~False~15~~~False~
+294~Exhibitor network 294~California Institute of Technology /CACR~1413~140.221.208.0/24~2001:0468:1f07:0126::/64~False~False~False~253~~~False~
+295~Exhibitor network 295~Six Nines IT~3831~140.221.200.0/27~2001:0468:1f07:0127::/64~False~False~False~15~~~False~
+296~Exhibitor network 296~SUSE LLC~3251~140.221.196.0/25~2001:0468:1f07:0128::/64~False~False~False~63~~~False~
+297~Exhibitor network 297~NetApp~605~140.221.194.0/27~2001:0468:1f07:0129::/64~False~False~False~15~~~False~
+298~Exhibitor network 298~Penguin Computing~1608~140.221.193.0/27~2001:0468:1f07:012a::/64~False~False~False~15~~~False~
+299~Exhibitor network 299~NVIDIA~2417~140.221.143.224/27~2001:0468:1f07:012b::/64~False~False~False~15~~~False~
+300~Exhibitor network 300~PGI~2218~140.221.193.128/27~2001:0468:1f07:012c::/64~False~False~False~15~~~False~
+301~Exhibitor network 301~Altair~2833~140.221.193.64/27~2001:0468:1f07:012d::/64~False~False~False~15~~~False~
+302~Exhibitor network 302~Institute of Industrial Science, The University of Tokyo~739~140.221.193.32/27~2001:0468:1f07:012e::/64~False~False~False~15~~~False~
+303~Exhibitor network 303~Altair~4531~140.221.193.96/27~2001:0468:1f07:012f::/64~False~False~False~15~~~False~
+304~Exhibitor network 304~AIST~2409~140.221.193.192/27~2001:0468:1f07:0130::/64~False~False~False~15~~~False~
+305~Exhibitor network 305~SUPERMICRO~3006~140.221.193.160/27~2001:0468:1f07:0131::/64~False~False~False~15~~~False~
+306~Exhibitor network 306~CIENA~2847~140.221.193.224/27~2001:0468:1f07:0132::/64~False~False~False~15~~~False~
+307~Exhibitor network 307~IBM~3433~140.221.195.0/27~2001:0468:1f07:0133::/64~False~False~False~15~~~False~
+308~Exhibitor network 308~Department of Energy~2433~140.221.194.128/25~2001:0468:1f07:0134::/64~False~False~False~55~~~False~
+309~Exhibitor network 309~StrongBox Data Solutions, Inc.~4327~140.221.194.64/27~2001:0468:1f07:0135::/64~False~False~False~14~~~False~
+310~Exhibitor network 310~Fraunhofer ITWM~1628~140.221.194.32/27~2001:0468:1f07:0136::/64~False~False~False~15~~~False~
+311~Exhibitor network 311~None~None~140.221.194.96/27~2001:0468:1f07:0137::/64~False~False~False~15~~~False~
+312~Exhibitor network 312~Corsa Technology~3043~140.221.199.96/27~2001:0468:1f07:0138::/64~False~False~False~15~~~False~
+313~caltech-occ-dci-management~None~None~140.221.249.32/27~2001:0468:1f07:0139::/64~True~False~False~0~~For DCI management networks that are accessible to Caltech/OCC.~False~
+314~Exhibitor network 314~National Center for High-Performance Computing~3643~140.221.195.64/27~2001:0468:1f07:013a::/64~False~False~False~15~~~False~
+315~Exhibitor network 315~University of Utah~1828~140.221.195.32/27~2001:0468:1f07:013b::/64~False~False~False~15~~~False~
+316~Exhibitor network 316~King Abdullah University of Science and Technology~1833~140.221.198.0/25~2001:0468:1f07:013c::/64~False~False~False~63~~~False~
+317~Exhibitor network 317~StarLight~2851~140.221.197.0/27~2001:0468:1f07:013d::/64~False~False~False~15~~~False~
+318~Exhibitor network 318~University of Southern California~1403~140.221.196.128/25~2001:0468:1f07:013e::/64~False~False~False~62~~~False~
+319~Exhibitor network 319~StarLight~2851~140.221.195.96/27~2001:0468:1f07:013f::/64~False~False~False~15~~~False~
+320~Exhibitor network 320~NCSA~3635~140.221.197.128/25~2001:0468:1f07:0140::/64~False~True~False~63~~~False~
+321~Exhibitor network 321~StarLight~2851~140.221.197.64/27~2001:0468:1f07:0141::/64~False~False~False~15~~~False~
+322~Exhibitor network 322~StarLight~2851~140.221.197.32/27~2001:0468:1f07:0142::/64~False~False~False~15~~~False~
+324~Exhibitor network 324~Georgia Institute of Technology~1217~140.221.199.0/27~2001:0468:1f07:0144::/64~False~False~False~0~~~False~
+325~Exhibitor network 325~Louisiana State University~1816~140.221.198.128/27~2001:0468:1f07:0145::/64~False~False~False~15~~~False~
+326~Exhibitor network 326~Virginia Tech~1027~140.221.198.192/27~2001:0468:1f07:0146::/64~False~False~False~15~~~False~
+327~Exhibitor network 327~Texas A&M University~3917~140.221.198.160/27~2001:0468:1f07:0147::/64~False~False~False~24~~~False~
+328~Exhibitor network 328~GEANT~1847~140.221.198.224/27~2001:0468:1f07:0148::/64~False~False~False~15~~~False~
+329~Exhibitor network 329~Tokyo Institute of Technology~427~140.221.199.128/27~2001:0468:1f07:0149::/64~False~False~False~15~~~False~
+330~Exhibitor network 330~Bright Computing~3025~140.221.199.64/27~2001:0468:1f07:014a::/64~False~False~False~15~~~False~
+331~Exhibitor network 331~Lenovo (United States) Inc.~3617~140.221.199.32/27~2001:0468:1f07:014b::/64~False~False~False~15~~~False~
+333~PTP noc-rtr-2 to noc-faucet~None~None~140.221.239.144/30~2001:0468:1f07:f14d::/64~True~True~True~0~~~False~
+335~Exhibitor network 335~California Institute of Technology /CACR~1413~140.221.204.0/24~2001:0468:1f07:014f::/64~False~False~False~253~~~False~
+336~Exhibitor network 336~California Institute of Technology /CACR~1413~140.221.202.0/24~2001:0468:1f07:0150::/64~False~False~False~253~~~False~
+337~Exhibitor network 337~California Institute of Technology /CACR~1413~140.221.201.0/24~2001:0468:1f07:0151::/64~False~False~False~253~~~False~
+340~Exhibitor network 340~Colfax International~2425~140.221.197.96/27~2001:0468:1f07:0154::/64~False~False~False~15~~~False~
+341~Exhibitor network 341~California Institute of Technology /CACR~1413~140.221.206.0/24~2001:0468:1f07:0155::/64~False~False~False~253~~~False~
+342~Exhibitor network 342~California Institute of Technology /CACR~1413~140.221.205.0/24~2001:0468:1f07:0156::/64~False~False~False~128~~~False~
+343~Exhibitor network 343~California Institute of Technology /CACR~1413~140.221.207.0/24~2001:0468:1f07:0157::/64~False~False~False~253~~~False~
+344~Exhibitor network 344~University of Texas at Dallas~3716~140.221.216.0/25~2001:0468:1f07:0158::/64~False~False~False~32~~~False~
+345~Exhibitor network 345~California Institute of Technology /CACR~1413~140.221.212.0/24~2001:0468:1f07:0159::/64~False~False~False~253~~~False~
+346~Exhibitor network 346~California Institute of Technology /CACR~1413~140.221.210.0/24~2001:0468:1f07:015a::/64~False~False~False~253~~~False~
+347~Exhibitor network 347~Nimbix, Inc.~1600~140.221.209.0/27~2001:0468:1f07:015b::/64~False~False~False~15~~~False~
+348~Exhibitor network 348~AWS~3447~140.221.199.192/27~2001:0468:1f07:015c::/64~False~False~False~15~~~False~
+349~Exhibitor network 349~Michigan State University~1204~140.221.199.160/27~2001:0468:1f07:015d::/64~False~True~False~15~~~False~
+350~Exhibitor network 350~University of Maryland~4211~140.221.199.224/27~2001:0468:1f07:015e::/64~False~False~False~15~~~False~
+351~Exhibitor network 351~California Institute of Technology /CACR~1413~140.221.211.0/24~2001:0468:1f07:015f::/64~False~False~False~253~~~False~
+352~Exhibitor network 352~NICT~327~140.221.214.0/25~2001:0468:1f07:0160::/64~False~True~False~63~~~False~
+353~Exhibitor network 353~Google~1604~140.221.213.0/27~2001:0468:1f07:0161::/64~False~True~False~29~~~False~
+354~Exhibitor network 354~Vanderbilt University~3907~140.221.213.128/27~2001:0468:1f07:0162::/64~False~False~False~20~~~False~
+355~Exhibitor network 355~Silicon Mechanics~2125~140.221.213.64/27~2001:0468:1f07:0163::/64~False~False~False~15~~~False~
+356~Exhibitor network 356~MathWorks~2019~140.221.213.32/27~2001:0468:1f07:0164::/64~False~False~False~15~~~False~
+357~Exhibitor network 357~Fujitsu Limited~1226~140.221.213.96/27~2001:0468:1f07:0165::/64~False~False~False~15~~~False~
+358~Exhibitor network 358~SCinet~2450~140.221.213.192/27~2001:0468:1f07:0166::/64~False~False~False~0~~~False~
+359~PTP noc-rtr-2 to wan-cenic-pacwave-losangeles~None~None~140.221.239.148/30~2001:0468:1f07:f167::/64~True~True~True~0~~SC18~False~
+360~Exhibitor network 360~Southern Methodist University~3953~140.221.215.0/27~2001:0468:1f07:0168::/64~False~False~False~3~~~False~
+361~Exhibitor network 361~None~None~140.221.214.128/25~2001:0468:1f07:0169::/64~False~True~False~63~~~False~
+362~Exhibitor network 362~PIONIER - Polish Optical Internet~1015~140.221.213.224/27~2001:0468:1f07:016a::/64~False~False~False~15~~~False~
+363~Exhibitor network 363~Emu Technology~313~140.221.215.128/27~2001:0468:1f07:016b::/64~False~False~False~15~~~False~
+364~Exhibitor network 364~None~None~140.221.215.64/27~2001:0468:1f07:016c::/64~False~False~False~15~~~False~
+365~Exhibitor network 365~Rubrik, Inc~3835~140.221.215.32/27~2001:0468:1f07:016d::/64~False~False~False~15~~~False~
+366~Exhibitor network 366~Panasas~1613~140.221.215.96/27~2001:0468:1f07:016e::/64~False~False~False~15~~~False~
+367~Exhibitor network 367~Internet2~2247~140.221.215.192/27~2001:0468:1f07:016f::/64~False~True~False~15~~~False~
+368~Exhibitor network 368~ETRI~845~140.221.215.160/27~2001:0468:1f07:0170::/64~False~False~False~15~~~False~
+369~Exhibitor network 369~RENCI~2238~140.221.215.224/27~2001:0468:1f07:0171::/64~False~False~False~15~~~False~
+370~Exhibitor network 370~California Institute of Technology /CACR~1413~140.221.220.0/24~2001:0468:1f07:0172::/64~False~False~False~253~~~False~
+371~Exhibitor network 371~California Institute of Technology /CACR~1413~140.221.218.0/24~2001:0468:1f07:0173::/64~False~False~False~253~~~False~
+372~Exhibitor network 372~Interdysciplinary Centre for Mathematical and Computational Modelling, University of Warsaw~4417~140.221.217.0/27~2001:0468:1f07:0174::/64~False~True~False~15~~~False~
+373~Exhibitor network 373~Infinera~2855~140.221.216.128/27~2001:0468:1f07:0175::/64~False~False~False~10~~~False~
+374~Exhibitor network 374~Pittsburgh Supercomputing Center~2028~140.221.216.192/27~2001:0468:1f07:0176::/64~False~False~False~15~~~False~
+375~Exhibitor network 375~Weka.io~3054~140.221.216.160/27~2001:0468:1f07:0177::/64~False~False~False~15~~~False~
+376~Exhibitor network 376~Lyda Hill Department of Bioinformatics, UT Southwestern Medical Center~4047~140.221.216.224/27~2001:0468:1f07:0178::/64~False~False~False~15~~~False~
+377~Exhibitor network 377~University of Maryland~4211~140.221.217.128/27~2001:0468:1f07:0179::/64~False~False~False~15~~~False~
+378~Exhibitor network 378~HPC SYSTEMS, INC.~4241~140.221.217.64/27~2001:0468:1f07:017a::/64~False~False~False~15~~~False~
+379~Exhibitor network 379~NEC Corporation~3233~140.221.217.32/27~2001:0468:1f07:017b::/64~False~False~False~15~~~False~
+380~Exhibitor network 380~Oracle~2806~140.221.217.96/27~2001:0468:1f07:017c::/64~False~False~False~15~~~False~
+381~Exhibitor network 381~Rutgers University~4401~140.221.219.0/27~2001:0468:1f07:017d::/64~False~False~False~15~~~False~
+382~Exhibitor network 382~HPE~2429~140.221.217.192/27~2001:0468:1f07:017e::/64~False~False~False~15~~~False~
+383~Exhibitor network 383~Cisco Systems~2803~140.221.217.160/27~2001:0468:1f07:017f::/64~False~False~False~15~~~False~
+385~Exhibitor network 385~Red River Computer Co., Inc.~631~140.221.217.224/27~2001:0468:1f07:0181::/64~False~False~False~1~~~False~
+386~Exhibitor network 386~Adaptive Computing~2406~140.221.219.128/27~2001:0468:1f07:0182::/64~False~False~False~15~~~False~
+387~Exhibitor network 387~University of Texas at Dallas~3716~140.221.223.0/25~2001:0468:1f07:0183::/64~False~False~False~62~~~False~
+388~Exhibitor network 388~University of Southern California~1403~140.221.222.128/25~2001:0468:1f07:0184::/64~False~False~False~63~~~False~
+389~Exhibitor network 389~Microsoft~3139~140.221.219.96/27~2001:0468:1f07:0185::/64~False~False~False~15~~~False~
+391~Exhibitor network 391~SCinet~2025~140.221.209.64/27~2001:0468:1f07:0187::/64~False~False~False~15~~~False~
+392~Exhibitor network 392~Intel Corporation~3223~140.221.200.64/27~2001:0468:1f07:0188::/64~False~False~False~15~~~False~
+393~Exhibitor network 393~Extreme Networks~2838~140.221.200.32/27~2001:0468:1f07:0189::/64~False~False~False~10~~~False~
+394~Exhibitor network 394~Cray Inc.~2413~140.221.209.32/27~2001:0468:1f07:018a::/64~False~False~False~15~~~False~
+397~Exhibitor network 397~Lucd~3775~140.221.222.64/27~2001:0468:1f07:018d::/64~False~False~False~15~~~False~
+398~dnoc2316-netbeez~None~None~140.221.243.240/29~2001:0468:1f07:018e::/64~True~True~False~2~~~False~
+399~Exhibitor network 399~Intel Corporation~3223~140.221.200.96/27~2001:0468:1f07:018f::/64~False~False~False~15~~~False~
+400~Exhibitor network 400~Stanford University~2206~140.221.200.192/27~2001:0468:1f07:0190::/64~False~True~False~23~~~False~
+401~Exhibitor network 401~Qumulo, Inc.~4227~140.221.200.160/27~2001:0468:1f07:0191::/64~False~False~False~15~~~False~
+402~Exhibitor network 402~NASA~2609~140.221.221.0/24~2001:0468:1f07:0192::/64~False~False~False~127~~~False~
+403~PTP noc-rtr-2 to dnoc4026-rtr~None~None~140.221.239.124/30~2001:0468:1f07:f193::/64~True~True~True~0~~~False~
+404~PTP noc-wan-400g-1 to noc-rtr-1~None~None~140.221.238.216/30~2001:0468:1f07:f194::/64~True~True~True~0~~~False~
+405~Exhibitor network 405~Xilinx~927~140.221.219.192/27~2001:0468:1f07:0195::/64~False~False~False~15~~~False~
+406~Exhibitor network 406~Red Hat~3238~140.221.219.160/27~2001:0468:1f07:0196::/64~False~False~False~5~~~False~
+407~Exhibitor network 407~DDN Storage~3213~140.221.219.224/27~2001:0468:1f07:0197::/64~False~False~False~15~~~False~
+410~Exhibitor network 410~Huawei Technologies~3047~140.221.222.32/27~2001:0468:1f07:019a::/64~False~False~False~15~~~False~
+411~Loopback noc-rtr-2~None~None~140.221.239.252/32~2001:0468:1f07:ffff::0252/128~True~False~False~0~~~False~
+413~Exhibitor network 413~None~None~140.221.223.128/25~2001:0468:1f07:019d::/64~False~False~False~62~~~False~
+414~PTP booth327-nict to noc-rtr-1~NICT~327~140.221.238.232/30~2001:0468:1f07:f19e::/64~True~True~True~0~~Booth 327, Drop 327-A~False~
+418~Exhibitor network 418~Pure Storage~639~140.221.233.192/27~2001:0468:1f07:01a2::/64~False~False~False~15~~~False~
+422~Loopback noc-sw-7280sr2-2~None~None~140.221.237.245/32~2001:0468:1f07:ffff::0245/128~True~False~False~0~~~False~
+423~Exhibitor network 423~SDSC~3013~140.221.226.0/24~2001:0468:1f07:01a7::/64~False~False~False~63~~~False~
+424~Exhibitor network 424~Indiana University~2400~140.221.225.0/24~2001:0468:1f07:01a8::/64~False~False~False~127~~~False~
+425~Exhibitor network 425~Indiana University~2400~140.221.227.0/24~2001:0468:1f07:01a9::/64~False~False~False~127~~~False~
+426~Exhibitor network 426~Indiana University~2400~140.221.230.0/24~2001:0468:1f07:01aa::/64~False~False~False~127~~~False~
+427~Exhibitor network 427~Indiana University~2400~140.221.229.0/24~2001:0468:1f07:01ab::/64~False~False~False~127~~~False~
+429~netbeez~None~None~140.221.243.160/27~2001:0468:1f07:01ad::/64~True~True~False~14~~~False~
+430~evpn-testing~None~None~140.221.239.48/30~2001:0468:1f07:01ae::/64~True~False~False~0~~~False~
+435~Exhibitor network 435~2CRSI~4001~140.221.209.192/27~2001:0468:1f07:01b3::/64~False~False~False~15~~~False~
+436~Exhibitor network 436~Dell~3218~140.221.209.224/27~2001:0468:1f07:01b4::/64~False~False~False~15~~~False~
+437~dtn-external-interfaces~None~None~140.221.209.160/27~2001:0468:1f07:01b5::/64~True~False~False~0~~externally exposed DTN interfaces (Xnet)~False~
+438~Exhibitor network 438~SCinet~2450~140.221.224.128/27~2001:0468:1f07:01b6::/64~False~False~False~0~~~False~
+439~Exhibitor network 439~SCinet~2450~140.221.224.64/27~2001:0468:1f07:01b7::/64~False~False~False~0~~~False~
+440~Exhibitor network 440~SCinet~2450~140.221.224.32/27~2001:0468:1f07:01b8::/64~False~False~False~0~~~False~
+441~Exhibitor network 441~SCinet~2450~140.221.224.96/27~2001:0468:1f07:01b9::/64~False~False~False~0~~~False~
+442~Exhibitor network 442~CSRA~3033~140.221.224.192/27~2001:0468:1f07:01ba::/64~False~False~False~15~~~False~
+443~Exhibitor network 443~SCinet~2450~140.221.224.160/27~2001:0468:1f07:01bb::/64~False~False~False~0~~~False~
+444~dnoc420-netbeez~None~None~140.221.249.16/29~2001:0468:1f07:01bc::/64~True~True~False~2~~~False~
+445~dnoc4026-netbeez~None~None~140.221.243.224/29~2001:0468:1f07:01bd::/64~True~True~False~2~~~False~
+446~faucet-dtn-test1~None~None~140.221.249.8/29~2001:0468:1f07:01be::/64~True~False~False~0~~Faucet 100G DTN Test1~False~
+447~dnoc1034-netbeez~None~None~140.221.243.248/29~2001:0468:1f07:01bf::/64~True~True~False~2~~~False~
+448~dnoc2644-netbeez~None~None~140.221.243.232/29~2001:0468:1f07:01c0::/64~True~True~False~2~~~False~
+555~SCinetDTN-PRP~None~None~None~None~True~False~False~0~~~False~
+666~bofh-lan~None~None~140.221.234.0/24~2001:0468:1f07:029a::/64~True~False~False~252~~~False~
+811~Georgia-Tech-811~None~None~None~None~True~False~False~0~~Layer 2~False~
+1310~SCinetDTN-SingaporeSC-1310~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-005~False~
+1400~UMD-Sense-ESnet-SV-1400~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1401~UMD-Sense-ESnet-SV-1401~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1402~UMD-Sense-ESnet-SV-1402~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1403~UMD-Sense-ESnet-SV-1403~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1404~UMD-Sense-ESnet-SV-1404~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1405~UMD-Sense-ESnet-SV-1405~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1406~UMD-Sense-ESnet-SV-1406~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1407~UMD-Sense-ESnet-SV-1407~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1408~UMD-Sense-ESnet-SV-1408~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1409~UMD-Sense-ESnet-SV-1409~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1410~UMD-Sense-ESnet-SV-1410~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1411~UMD-Sense-ESnet-SV-1411~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1412~UMD-Sense-ESnet-SV-1412~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1413~UMD-Sense-ESnet-SV-1413~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1414~UMD-Sense-ESnet-SV-1414~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1415~UMD-Sense-ESnet-SV-1415~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1416~UMD-Sense-ESnet-SV-1416~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1417~UMD-Sense-ESnet-SV-1417~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1418~UMD-Sense-ESnet-SV-1418~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1419~UMD-Sense-ESnet-SV-1419~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1420~UMD-Sense-SL-Caltech1420~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1421~UMD-Sense-SL-Caltech1421~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1422~UMD-Sense-SL-Caltech1422~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1423~UMD-Sense-SL-Caltech1423~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1424~UMD-Sense-SL-Caltech1424~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1425~UMD-Sense-SL-Caltech1425~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1426~UMD-Sense-SL-Caltech1426~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1427~UMD-Sense-SL-Caltech1427~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1428~UMD-Sense-SL-Caltech1428~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1429~UMD-Sense-SL-Caltech1429~None~None~None~None~True~False~False~0~~NRE-014 StarLight to Caltech~False~
+1430~UMD-Sense-SL-1430~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1431~UMD-Sense-SL-1431~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1432~UMD-Sense-SL-1432~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1433~UMD-Sense-SL-1433~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1434~UMD-Sense-SL-1434~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1435~UMD-Sense-SL-1435~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1436~UMD-Sense-SL-1436~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1437~UMD-Sense-SL-1437~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1438~UMD-Sense-SL-1438~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1439~UMD-Sense-SL-1439~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1440~UMD-Sense-Caltech-1440~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1441~UMD-Sense-Caltech-1441~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1442~UMD-Sense-Caltech-1442~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1443~UMD-Sense-Caltech-1443~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1444~UMD-Sense-Caltech-1444~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1445~UMD-Sense-Caltech-1445~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1446~UMD-Sense-Caltech-1446~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1447~UMD-Sense-Caltech-1447~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1448~UMD-Sense-Caltech-1448~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1449~UMD-Sense-Caltech-1449~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1485~UMD-Sense-Caltech1485~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1486~UMD-Sense-Caltech1486~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1487~UMD-Sense-Caltech1487~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1488~UMD-Sense-Caltech1488~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1489~UMD-Sense-Caltech1489~None~None~None~None~True~False~False~0~~UMD Sense - NRE-014~False~
+1648~400G-DTN~None~None~None~None~True~False~False~0~~~False~
+1663~SCinetDTN-P4-1663~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-007~False~
+1730~Caltech-TIFR-1730~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1731~Caltech-TIFR-1731~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1732~Caltech-TIFR-1732~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1733~Caltech-TIFR-1733~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1734~Caltech-TIFR-1734~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1735~Caltech-TIFR-1735~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1736~Caltech-TIFR-1736~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1737~Caltech-TIFR-1737~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1738~Caltech-TIFR-1738~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1739~Caltech-TIFR-1739~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1740~Caltech-TIFR-1740~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1741~Caltech-TIFR-1741~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1742~Caltech-TIFR-1742~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1743~Caltech-TIFR-1743~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1744~Caltech-TIFR-1744~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1745~Caltech-TIFR-1745~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1746~Caltech-TIFR-1746~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1747~Caltech-TIFR-1747~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1748~Caltech-TIFR-1748~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1749~Caltech-TIFR-1749~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1750~Caltech-TIFR-1750~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1751~Caltech-TIFR-1751~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1752~Caltech-TIFR-1752~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1753~Caltech-TIFR-1753~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1754~Caltech-TIFR-1754~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1755~Caltech-TIFR-1755~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1756~Caltech-TIFR-1756~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1757~Caltech-TIFR-1757~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1758~Caltech-TIFR-1758~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1759~Caltech-TIFR-1759~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1760~Caltech-TIFR-1760~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1761~Caltech-TIFR-1761~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1762~Caltech-TIFR-1762~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1763~Caltech-TIFR-1763~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1764~Caltech-TIFR-1764~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1765~Caltech-TIFR-1765~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1766~Caltech-TIFR-1766~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1767~Caltech-TIFR-1767~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1768~Caltech-TIFR-1768~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1769~Caltech-TIFR-1769~None~None~None~None~True~False~False~0~~Caltech-TIFR - NRE-016~False~
+1770~Caltech-SDN-1770~None~None~None~None~True~False~False~0~~Caltech-SDN - NRE-019~False~
+1771~Caltech-MDNA-1771~None~None~None~None~True~False~False~0~~Caltech-MDNA - NRE-020~False~
+1772~Caltech-UnifiedSDN-1772~None~None~None~None~True~False~False~0~~Caltech-UnifiedSDN - NRE-21~False~
+1775~UMD-Sense-I2-1775~None~None~None~None~True~False~False~0~~UMD Sense I2 - NRE-014~False~
+1776~UMD-Sense-I2-1776~None~None~None~None~True~False~False~0~~UMD Sense I2 - NRE-014~False~
+1777~UMD-Sense-I2-1777~None~None~None~None~True~False~False~0~~UMD Sense I2 - NRE-014~False~
+1778~UMD-Sense-I2-1778~None~None~None~None~True~False~False~0~~UMD Sense I2 - NRE-014~False~
+1779~GLIF-AutoGOLE-1779~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1780~GLIF-AutoGOLE-1780~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1781~GLIF-AutoGOLE-1781~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1782~GLIF-AutoGOLE-1782~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1783~GLIF-AutoGOLE-1783~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1784~GLIF-AutoGOLE-1784~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1785~GLIF-AutoGOLE-1785~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1786~GLIF-AutoGOLE-1786~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1787~GLIF-AutoGOLE-1787~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1788~GLIF-AutoGOLE-1788~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1789~GLIF-AutoGOLE-1789~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1790~GLIF-AutoGOLE-1790~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1791~GLIF-AutoGOLE-1791~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1792~GLIF-AutoGOLE-1792~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1793~GLIF-AutoGOLE-1793~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1794~GLIF-AutoGOLE-1794~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1795~GLIF-AutoGOLE-1795~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1796~GLIF-AutoGOLE-1796~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1797~GLIF-AutoGOLE-1797~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1798~GLIF-AutoGOLE-1798~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1799~GLIF-AutoGOLE-1799~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-004~True~
+1800~UTokyo-1800~None~None~None~None~True~False~False~0~~~True~
+1801~UTokyo-1801~None~None~None~None~True~False~False~0~~~True~
+1802~OCC-1802~None~None~None~None~True~False~False~0~~~True~
+1803~SCinetDTN-UTokyo-1803~None~None~None~None~True~False~False~0~~SCinetDTN-UTokyo - NRE-001~False~
+1850~Caltech-1850~None~None~None~None~True~False~False~0~~~True~
+1851~Caltech-1851~None~None~None~None~True~False~False~0~~~True~
+1852~Caltech-1852~None~None~None~None~True~False~False~0~~~True~
+1853~Caltech-1853~None~None~None~None~True~False~False~0~~~True~
+1854~Caltech-1854~None~None~None~None~True~False~False~0~~~True~
+1855~UMich/MSU-1855~None~None~None~None~True~False~False~0~~~True~
+1856~UMich/MSU-1856~None~None~None~None~True~False~False~0~~~True~
+1857~UMich/MSU-1857~None~None~None~None~True~False~False~0~~~True~
+1860~NASA-1860~None~None~None~None~True~False~False~0~~NASA - NRE-002~False~
+1861~NASA-1861~None~None~None~None~True~False~False~0~~NASA - NRE-002~False~
+1862~NASA-1862~None~None~None~None~True~False~False~0~~NASA - NRE-002~True~
+1863~NASA-1863~None~None~None~None~True~False~False~0~~NASA - NRE-002~True~
+1864~NASA-1864~None~None~None~None~True~False~False~0~~NASA - NRE-002/NRE-028~True~
+1865~NASA-1865~None~None~None~None~True~False~False~0~~NASA - NRE-002/NRE-028~True~
+1870~FNAL-1870~None~None~None~None~True~False~False~0~~~True~
+1871~FNAL-1871~None~None~None~None~True~False~False~0~~~True~
+1872~SCinet-DTN-1872~None~None~None~None~True~False~False~0~~~False~
+1900~UTokyo-1900~None~None~None~None~True~False~False~0~~~True~
+1901~UTokyo-1901~None~None~None~None~True~False~False~0~~~True~
+1910~iCAIR-NRL-1910~None~None~None~None~True~False~False~0~~iCAIR-NRL - NRE-011/NRE-028~True~
+1911~OCC-1911~None~None~None~None~True~False~False~0~~~True~
+1912~OCC-1912~None~None~None~None~True~False~False~0~~~True~
+1913~OCC-1913~None~None~None~None~True~False~False~0~~~True~
+1914~OCC-1914~None~None~None~None~True~False~False~0~~~True~
+1915~SCinetDTN-Fermi-1915~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-010~True~
+1916~OCC-1916~None~None~None~None~True~False~False~0~~~True~
+1917~OCC-1917~None~None~None~None~True~False~False~0~~~True~
+1918~OCC-1918~None~None~None~None~True~False~False~0~~~True~
+1919~OCC-1919~None~None~None~None~True~False~False~0~~~True~
+1920~OCC-1920~None~None~None~None~True~False~False~0~~~True~
+1939~NRL-USC-SHOAH-1939~None~None~None~None~True~False~False~0~~NRL-USC-SHOAH - NRE-028~False~
+1940~NRL-1940~None~None~None~None~True~False~False~0~~~True~
+1941~NRL-1941~None~None~None~None~True~False~False~0~~~True~
+1942~NRL-1942~None~None~None~None~True~False~False~0~~~True~
+1943~NRL-1943~None~None~None~None~True~False~False~0~~NRL - NRE-002/NRE-028~True~
+1944~NRL-1944~None~None~None~None~True~False~False~0~~NRL - NRE-002/NRE-028~True~
+1945~NRL-1945~None~None~None~None~True~False~False~0~~~True~
+1946~NRL-1946~None~None~None~None~True~False~False~0~~NRL - NRE-028~False~
+1947~NRL-1947~None~None~None~None~True~False~False~0~~NRL - NRE-028~False~
+1949~NRL-1949~None~None~None~None~True~False~False~0~~~True~
+1950~SCinetDTN-LSST-1950~None~None~None~None~True~False~False~0~~SCinet DTN LSST - NRE-001/NRE-017/NRE-018~False~
+1951~SCinetDTN-LSST-1951~None~None~None~None~True~False~False~0~~SCinet DTN LSST - NRE-001/NRE-017/NRE-018~False~
+1952~SCinetDTN-LSST-1952~None~None~None~None~True~False~False~0~~SCinet DTN LSST - NRE-001/NRE-017/NRE-018~False~
+1953~NRL-1953~None~None~None~None~True~False~False~0~~NRL - NRE-002/NRE-028~False~
+1954~NRL-1954~None~None~None~None~True~False~False~0~~NRL - NRE-002/NRE-028~False~
+1956~NRL-1956~None~None~None~None~True~False~False~0~~NRL - NRE-028~False~
+1957~NRL-1957~None~None~None~None~True~False~False~0~~NRL - NRE-028~False~
+1958~SCinetDTN-LSST-1958~None~None~None~None~True~False~False~0~~~False~
+1959~SCinetDTN-LSST-1959~None~None~None~None~True~False~False~0~~~False~
+1960~SCinetDTN-LSST-1960~None~None~None~None~True~False~False~0~~~False~
+1993~NRL-USC-Caltech-1993~None~None~None~None~True~False~False~0~~NRL-USC-Caltech-SHOAH-B2B - NRE-028~False~
+1999~sec-clouddata~None~None~140.221.248.0/24~2001:0468:1f07:07cf::/64~True~True~False~30~~~True~
+2034~Aspera-2034~None~None~None~None~True~False~False~0~~Aspera Demo~True~
+2035~Aspera-2035~None~None~None~None~True~False~False~0~~Aspera Demo~True~
+2038~GLIF-AutoGOLE-2038~None~None~None~None~True~False~False~0~~SURFnet and SCinet DTN - NRE-001/NRE-003/NRE-004/NRE-006~False~
+2039~SCinetDTN-ANL-2039~None~None~None~None~True~False~False~0~~SCinetDTN ANL - NRE-001/NRE-032~False~
+2040~SCinetDTN-ANL-2040~None~None~None~None~True~False~False~0~~SCinetDTN ANL - NRE-001/NRE-032~False~
+2546~IU-400G-2546~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2547~IU-400G-2547~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2548~IU-400G-2548~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2549~IU-400G-2549~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2550~IU-400G-2550~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2551~IU-400G-2551~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2552~IU-400G-2552~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2553~IU-400G-2553~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2554~IU-400G-2554~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2555~IU-400G-2555~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2556~IU-400G-2556~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2557~IU-400G-2557~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2558~IU-400G-2558~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2559~IU-400G-2559~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2560~IU-400G-2560~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2561~IU-400G-2561~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2562~IU-400G-2562~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2563~IU-400G-2563~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2564~IU-400G-2564~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2565~IU-400G-2565~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2566~IU-400G-2566~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2567~IU-400G-2567~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2568~IU-400G-2568~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2569~IU-400G-2569~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2570~IU-400G-2570~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2571~IU-400G-2571~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2572~IU-400G-2572~None~None~None~None~True~False~False~0~~IU-400G-Demo - NRE-0035~False~
+2605~Caltech-2605~None~None~None~None~True~False~False~0~~~True~
+2606~Caltech-2606~None~None~None~None~True~False~False~0~~~True~
+2607~Caltech-2607~None~None~None~None~True~False~False~0~~~True~
+2608~Caltech-2608~None~None~None~None~True~False~False~0~~~True~
+2609~Caltech-2609~None~None~None~None~True~False~False~0~~~True~
+2805~JGN-NICT-UTokyo-2805~None~None~None~None~True~False~False~0~~~False~
+2806~JGN-NICT-UTokyo-2806~None~None~None~None~True~False~False~0~~~False~
+2807~JGN-NICT-UTokyo-2807~None~None~None~None~True~False~False~0~~~False~
+2808~JGN-NICT-UTokyo-2808~None~None~None~None~True~False~False~0~~~False~
+2809~JGN-NICT-UTokyo-2809~None~None~None~None~True~False~False~0~~~False~
+2810~JGN-NICT-UTokyo-2810~None~None~None~None~True~False~False~0~~~False~
+2811~JGN-NICT-UTokyo-2811~None~None~None~None~True~False~False~0~~~False~
+2812~JGN-NICT-UTokyo-2812~None~None~None~None~True~False~False~0~~~False~
+2813~JGN-NICT-UTokyo-2813~None~None~None~None~True~False~False~0~~~False~
+2814~JGN-NICT-UTokyo-2814~None~None~None~None~True~False~False~0~~~False~
+2815~JGN-NICT-UTokyo-2815~None~None~None~None~True~False~False~0~~~False~
+2816~JGN-NICT-UTokyo-2816~None~None~None~None~True~False~False~0~~~False~
+2817~JGN-NICT-UTokyo-2817~None~None~None~None~True~False~False~0~~~False~
+2818~JGN-NICT-UTokyo-2818~None~None~None~None~True~False~False~0~~~False~
+2819~JGN-NICT-UTokyo-2819~None~None~None~None~True~False~False~0~~~False~
+2820~KISTI-2820~None~None~None~None~True~False~False~0~~~True~
+2851~PRP-UCSC-2851~None~None~None~None~True~False~False~0~~~True~
+2852~PRP-LA-2852~None~None~None~None~True~False~False~0~~~True~
+2853~PRP-SUNN-2853~None~None~None~None~True~False~False~0~~~True~
+2854~PRP-SDSU-2854~None~None~None~None~True~False~False~0~~~True~
+2855~PRP-USC-2855~None~None~None~None~True~False~False~0~~~True~
+2860~NICT-2860~None~None~None~None~True~False~False~0~~~True~
+2861~NICT-2861~None~None~None~None~True~False~False~0~~~True~
+2862~NICT-2862~None~None~None~None~True~False~False~0~~~True~
+2863~NICT-2863~None~None~None~None~True~False~False~0~~~True~
+2864~NICT-2864~None~None~None~None~True~False~False~0~~~True~
+2865~NICT-2865~None~None~None~None~True~False~False~0~~~True~
+2880~Vanderbilt-2880~None~None~None~None~True~False~False~0~~~True~
+3060~SCinetDTN-PADTN-3060~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-005/NRE-006~False~
+3061~SCinetDTN-PADTN-3061~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-005~False~
+3062~SCinetDTN-Fermi-3062~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-010~False~
+3063~SCinetDTN-OPTDTN-3063~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-006~False~
+3064~SCinetDTN-iCAIR-3064~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-006/NRE-008/NRE-009~False~
+3065~SCinetDTN-3065~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001~False~
+3067~SCinetDTN-OPTDTN-3067~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001/NRE-006~False~
+3070~SCinetDTN-3070~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001~False~
+3071~SCinetDTN-3071~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001~False~
+3072~SCinetDTN-3072~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001~False~
+3073~SCinetDTN-3073~None~None~None~None~True~False~False~0~~SCinet DTN - NRE-001~False~
+3100~Caltech-TIFR-NDN-3100~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3101~Caltech-TIFR-NDN-3101~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3102~Caltech-TIFR-NDN-3102~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3103~Caltech-TIFR-NDN-3103~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3104~Caltech-TIFR-NDN-3104~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3105~Caltech-TIFR-NDN-3105~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3106~Caltech-TIFR-NDN-3106~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3107~Caltech-TIFR-NDN-3107~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3108~Caltech-TIFR-NDN-3108~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3109~Caltech-TIFR-NDN-3109~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3110~Caltech-TIFR-NDN-3110~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3111~Caltech-TIFR-NDN-3111~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3112~Caltech-TIFR-NDN-3112~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3113~Caltech-TIFR-NDN-3113~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3114~Caltech-TIFR-NDN-3114~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3115~Caltech-TIFR-NDN-3115~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3116~Caltech-TIFR-NDN-3116~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3117~Caltech-TIFR-NDN-3117~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3118~Caltech-TIFR-NDN-3118~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3119~Caltech-TIFR-NDN-3119~None~None~None~None~True~False~False~0~~Caltech-TIFR-NDN - NRE-022~False~
+3120~Caltech-USC-400G-3120~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3121~Caltech-USC-400G-3121~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3122~Caltech-USC-400G-3122~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3123~Caltech-USC-400G-3123~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3124~Caltech-USC-400G-3124~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3125~Caltech-USC-400G-3125~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3126~Caltech-USC-400G-3126~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3127~Caltech-USC-400G-3127~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3128~Caltech-USC-400G-3128~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3129~Caltech-USC-400G-3129~None~None~None~None~True~False~False~0~~Caltech-USC-400G - NRE-036~False~
+3130~Caltech-LHC-3130~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3131~Caltech-LHC-3131~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3132~Caltech-LHC-3132~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3133~Caltech-LHC-3133~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3134~Caltech-LHC-3134~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3135~Caltech-LHC-3135~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3136~Caltech-LHC-3136~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3137~Caltech-LHC-3137~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3138~Caltech-LHC-3138~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3139~Caltech-LHC-3139~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3140~Caltech-LHC-3140~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3141~Caltech-LHC-3141~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3142~Caltech-LHC-3142~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3143~Caltech-LHC-3143~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3144~Caltech-LHC-3144~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3145~Caltech-LHC-3145~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3146~Caltech-LHC-3146~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3147~Caltech-LHC-3147~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3148~Caltech-LHC-3148~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3149~Caltech-LHC-3149~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3150~Caltech-LHC-3150~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3151~Caltech-LHC-3151~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3152~Caltech-LHC-3152~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3153~Caltech-LHC-3153~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3154~Caltech-LHC-3154~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3155~Caltech-LHC-3155~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3156~Caltech-LHC-3156~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3157~Caltech-LHC-3157~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3158~Caltech-LHC-3158~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3159~Caltech-LHC-3159~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3160~Caltech-LHC-3160~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3161~Caltech-LHC-3161~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3162~Caltech-LHC-3162~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3163~Caltech-LHC-3163~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3164~Caltech-LHC-3164~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3165~Caltech-LHC-3165~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3166~Caltech-LHC-3166~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3167~Caltech-LHC-3167~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3168~Caltech-LHC-3168~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3169~Caltech-LHC-3169~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3170~Caltech-LHC-3170~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3171~Caltech-LHC-3171~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3172~Caltech-LHC-3172~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3173~Caltech-LHC-3173~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3174~Caltech-LHC-3174~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3175~Caltech-LHC-3175~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3176~Caltech-LHC-3176~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3177~Caltech-LHC-3177~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3178~Caltech-LHC-3178~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3179~Caltech-LHC-3179~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3180~Caltech-LHC-3180~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3181~Caltech-LHC-3181~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3182~Caltech-LHC-3182~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3183~Caltech-LHC-3183~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3184~Caltech-LHC-3184~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3185~Caltech-LHC-3185~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3186~Caltech-LHC-3186~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3187~Caltech-LHC-3187~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3188~Caltech-LHC-3188~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3189~Caltech-LHC-3189~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3190~Caltech-LHC-3190~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3191~Caltech-LHC-3191~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3192~Caltech-LHC-3192~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3193~Caltech-LHC-3193~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3194~Caltech-LHC-3194~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3195~Caltech-LHC-3195~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3196~Caltech-LHC-3196~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3197~Caltech-LHC-3197~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3198~Caltech-LHC-3198~None~None~None~None~True~False~False~0~~Caltech-LHC - NRE-016~False~
+3199~Caltech-KISTI-3199~None~None~None~None~True~False~False~0~~Caltech-KISTI~False~
+3224~NRE-036 USC 3224~None~None~None~None~True~False~False~0~~~False~
+3600~UMD-Sense-BDE-ESnet-SL-3600~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3601~UMD-Sense-BDE-ESnet-SL-3601~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3602~UMD-Sense-BDE-ESnet-SL-3602~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3603~UMD-Sense-BDE-ESnet-SL-3603~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3604~UMD-Sense-BDE-ESnet-SL-3604~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3605~UMD-Sense-BDE-ESnet-SL-3605~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3606~UMD-Sense-BDE-ESnet-SL-3606~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3607~UMD-Sense-BDE-ESnet-SL-3607~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3608~UMD-Sense-BDE-ESnet-SL-3608~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3609~UMD-Sense-BDE-ESnet-SL-3609~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3610~UMD-Sense-BDE-ESnet-SL-3610~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3611~UMD-Sense-BDE-ESnet-SL-3611~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3612~UMD-Sense-BDE-ESnet-SL-3612~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3613~UMD-Sense-BDE-ESnet-SL-3613~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3614~UMD-Sense-BDE-ESnet-SL-3614~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3615~UMD-Sense-BDE-ESnet-SL-3615~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3616~UMD-Sense-BDE-ESnet-SL-3616~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3617~UMD-Sense-BDE-ESnet-SL-3617~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3618~UMD-Sense-BDE-ESnet-SL-3618~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3619~UMD-Sense-BDE-ESnet-SL-3619~None~None~None~None~True~False~False~0~~UMD Sense and BigDataExpress - NRE-014/NRE-026~False~
+3700~OSiRIS-SLATE-AGLT2-UM-3700~None~None~None~None~True~False~False~0~~OSiRIS-SLATE-ATLT2-UM - NRE-030~False~
+3705~IRNC-AMIS-3705~None~None~None~None~True~False~False~0~~IRNC-AMIS - NRE-031~False~
+3706~IRNC-AMIS-3706~None~None~None~None~True~False~False~0~~IRNC-AMIS - NRE-031~False~
+3707~IRNC-AMIS-3707~None~None~None~None~True~False~False~0~~IRNC-AMIS - NRE-031~False~
+3708~IRNC-AMIS-3708~None~None~None~None~True~False~False~0~~IRNC-AMIS - NRE-031~False~
+3709~IRNC-AMIS-3709~None~None~None~None~True~False~False~0~~IRNC-AMIS - NRE-031~False~
+3710~IRNC-AMIS-3710~None~None~None~None~True~False~False~0~~IRNC-AMIS - NRE-031~False~
