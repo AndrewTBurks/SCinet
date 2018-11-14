@@ -201,6 +201,8 @@
           function (err, flows) {
             let timestamp = Date.now();
 
+            flows = flows.filter(flow => parseFloat(flow.value))
+
             for (let booth of Object.keys(state.booths)) {
               // updatedData[booth] = Math.pow(
               //   Math.random() * Math.pow(2, 10),
@@ -368,6 +370,7 @@
 
               let countryArea = d3.area()
                 .curve(d3.curveMonotoneX)
+                // .curve(d3.curveStep)
                 .x((d, i) => countryTime(timestamps[i]))
                 .y0(d => countryHeight(d.values[0]))
                 .y1(d => countryHeight(d.values[1]));
