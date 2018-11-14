@@ -64,7 +64,7 @@
       state.width = 1150;
 
       let aspectRatio = state.width / state.height;
-      console.log(aspectRatio, 7680 / 4320);
+      // console.log(aspectRatio, 7680 / 4320);
 
       let margin = 50;
       let width = state.width;
@@ -88,11 +88,11 @@
       let topLeft = svg.append("g");
       
       topLeft.append("rect")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", 2700)
-        .attr("height", 2500)
-        .style("stroke", "orange");
+        .attr("x", 200)
+        .attr("y", 150)
+        .attr("width", 2500)
+        .attr("height", 2350)
+        // .style("stroke", "orange");
 
 
       let bottomRight = svg.append("g")
@@ -185,7 +185,7 @@
 
 
       recolorNodes();
-      setInterval(recolorNodes, 1000);
+      setInterval(recolorNodes, 5000);
 
 
       function recolorNodes() {
@@ -253,6 +253,7 @@
                 .range([d.height, 0]).nice().clamp(true);
 
               let area = d3.area()
+                .curve(d3.curveMonotoneX)
                 .x(d => xScale(timeScale(d.timestamp)))
                 .y0(yScale(valueScale(0.00001)))
                 .y1(d => yScale(valueScale(d.total)));
@@ -309,30 +310,18 @@
                     countryAggregate[country][t] = 0;
                   }
 
+                  if (!isNaN(parseFloat(boothEntry.country[country]))) {
                     countryAggregate[country][t] += boothEntry.country[country];
+                  }
+
                 }
               }
             }
 
-            console.log(countryAggregate);
-
             timestamps = timestamps.map(t => new Date(t));
-            // console.log(timestamps);
 
-            // let countryData = [];
-
-            // for (let country of Object.keys(countryAggregate)) {
-            //   for (let time in countryAggregate[country]) {
-            //     countryData.push({
-            //       country,
-            //       timestamp: timestamps[time],
-            //       value: countryAggregate[country][time]
-            //     });
-            //   }
-            // }
-
-            let countryOrder = Object.keys(countryAggregate).sort(function(a,b) { return d3.sum(countryAggregate[b]) - d3.sum(countryAggregate[a]); });
-            console.log(countryOrder);
+            let countryOrder = Object.keys(countryAggregate).sort(function(a,b) { return d3.sum(countryAggregate[b]) - d3.sum(countryAggregate[a]); }).slice(0, 8);
+            // console.log(countryOrder, countryOrder.length);
 
             let stackData = {};
             
@@ -359,8 +348,6 @@
               maxValue = Math.max(currentValue, maxValue);
             }
             
-            console.log(stackData);
-
             if (timestamps.length >= 2) {
               // draw country stacked area chart
               let countryHeight = d3.scaleLinear()
@@ -368,17 +355,19 @@
                 // .domain([0, Math.pow(2, 10), Math.pow(2, 20), Math.pow(2, 30), Math.pow(2, 40)])
                 // .range(d3.range(5).map(i => (d.height * (4-i)) / 4));
                 .domain([0.0000001, maxValue])
-                .range([2500, 0]).nice().clamp(true);
+                .range([2500, 150]).nice().clamp(true);
 
               let countryTime = d3.scaleTime()
                 .domain(d3.extent(timestamps))
-                .range([0, 2700]);
+                .range([200, 2700]);
 
               let countryColor = d3.scaleOrdinal()
                   .domain(countryOrder)
-                  .range(d3.schemeCategory10);
+                  .range(['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5'])
+                  // .range(['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd','#ccebc5','#ffed6f']);
 
               let countryArea = d3.area()
+                .curve(d3.curveMonotoneX)
                 .x((d, i) => countryTime(timestamps[i]))
                 .y0(d => countryHeight(d.values[0]))
                 .y1(d => countryHeight(d.values[1]));
@@ -392,10 +381,62 @@
                 .attr("class", "countryArea")
                 .attr("d", d => countryArea(stackData[d]))
                 .attr("fill", countryColor)
-                .attr("opacity", 0.75)
+                .attr("opacity", 1)
                 .on("click", console.log);
 
-              console.log(stackArea);
+              svg.selectAll(".legendG").remove();
+
+              let legendSize = 100;
+
+              svg.selectAll(".legendG")
+                .data(countryOrder.slice(0).reverse())
+              .enter().append("g")
+                .attr("class", "legendG")
+                .each(function(d, i) {
+                  let y =  i * (25 + legendSize);
+
+                  let g = d3.select(this)
+                    .attr("transform", `translate(${2700}, ${150 + y})`);
+
+                  let sq = g.append("rect")
+                    .attr("x", 25)
+                    .attr("y", 0)
+                    .attr("width", legendSize)
+                    .attr("height", legendSize)
+                    .style("fill", countryColor(d));
+
+                  let text = g.append("text")
+                    .attr("x", 50 + legendSize + 25)
+                    .attr("y", legendSize - 20)
+                    .style("fill", "white")
+                    .style("font-size", legendSize - 10)
+                    .text(d);
+                });
+
+              function humanFileSize(size) {
+                if (size == 0) {
+                  return "0b";
+                }
+                var i = Math.floor( Math.log(size) / Math.log(1024) );
+                return ( size / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['b', 'kb', 'Mb', 'Gb', 'Tb'][i];
+              };
+
+              let countryTimeAxis = d3.axisBottom(countryTime)
+                // .ticks(2)
+                .tickFormat(d3.timeFormat("%H:%M:%S"))
+                .tickSize(20);
+              let countryValueAxis = d3.axisLeft(countryHeight)
+                .tickFormat(humanFileSize)
+                .tickSize(20);
+
+
+
+              svg.selectAll(".topLeftAxis").remove();
+
+              let axisBottom = svg.append("g").attr("transform", `translate(${0}, ${2500})`).attr("class", "axis topLeftAxis").call(countryTimeAxis);
+              let axisLeft = svg.append("g").attr("transform", `translate(${200}, ${0})`).attr("class", "axis topLeftAxis").call(countryValueAxis);
+
+              axisBottom.selectAll("text").attr("transform", "translate(40, 40)rotate(20)")
             }
           });
         }
